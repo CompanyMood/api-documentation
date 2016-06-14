@@ -53,7 +53,7 @@ You need to send your application token with every request in the
 `X-App-Token` header.
 
 <aside class="notice">
-You can get your application token by requesting it at <a href="mailto:support@company-mood.com">support@company-mood.com</a>.
+You can get your application token by requesting it at <a href="mailto:hello@company-mood.com">hello@company-mood.com</a>.
 You need an CompanyMood account.
 </aside>
 
