@@ -2,6 +2,7 @@
 
 ## Retrieve the tags pool for logged in user
 Custom tags specify the tags you can use to describe your mood.  It's `id` and `name` is the same value.
+Returns with an 401 if the user does not belong to a company.
 
 ```http
 GET /custom_tags HTTP/1.1
