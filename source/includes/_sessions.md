@@ -36,7 +36,8 @@ Content-Type: application/json
       "locale": "de",
       "image_url": "https://gravatar.com/avatar/829afce351884fcde132544bf9686221",
       "role": "admin",
-      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83"
+      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83",
+      "company_id": "8f40670c-9927-4712-979f-81a2fa4c7253"
     }
   }
 }
@@ -64,4 +65,4 @@ locale     | Locale of the sessions user
 image_url  | Url to the profile image of the sessions user
 role       | Role of the sessions user (`admin`, `department_manager` or `employee`)
 auth_token | Auth token for users session, use this for further authorization on enpoints
-
+company_id | ID of the company, the user belongs to. Empty if the user does't belong to a company, yet.
