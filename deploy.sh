@@ -139,6 +139,10 @@ main() {
   restore_head
 }
 
+create_cname() {
+  echo "docs.company-mood.com" > $deploy_directory/CNAME
+}
+
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
@@ -150,6 +154,7 @@ incremental_deploy() {
   git symbolic-ref HEAD refs/heads/$deploy_branch
   #put the previously committed contents of deploy_branch into the index
   git --work-tree "$deploy_directory" reset --mixed --quiet
+  create_cname
   git --work-tree "$deploy_directory" add --all
 
   set +o errexit
