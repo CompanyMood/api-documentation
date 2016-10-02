@@ -20,24 +20,30 @@ Content-Type: application/json
 {
   "data": [
      {
-       "id": "Workload",
+       "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
        "type": "custom_tags",
        "attributes": {
-         "name": "Workload"
+         "name": "Workload",
+         "de_translation": "Arbeitspensum",
+         "en_translation": "Workload"
        }
      },
      {
-       "id": "Private",
+       "id": "c23e5e7d-162f-4fdc-9243-5e6349ce2bd1",
        "type": "custom_tags",
        "attributes": {
-         "name": "Private"
+         "name": "Private",
+         "de_translation": "Privat",
+         "en_translation": "Private"
        }
      },
      {
-       "id": "Management",
+       "id": "a9767fd1-a187-40e2-954c-872cebff5e70",
        "type": "custom_tags",
        "attributes": {
-         "name": "Management"
+         "name": "Management",
+         "de_translation": "Vorgesetzte",
+         "en_translation": "Management"
        }
      }
   ]
@@ -46,6 +52,9 @@ Content-Type: application/json
 
 ### Response Attributes
 
-Paramteter | Description
------------|------------
-name       | Same as `id` (used for `tag_list` in mood creation)
+Paramteter     | Description
+---------------|------------
+id             | id of the tag (used for `custom_tag_ids` in mood creation)
+name           | name (DEPRECATED)
+de_translation | German translation of the tag
+en_translation | English translation of the tag

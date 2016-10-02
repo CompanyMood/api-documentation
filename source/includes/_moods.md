@@ -38,6 +38,7 @@ Content-Type: application/json
          "year": 2015,
          "reason": "It was pretty noisy this week",
          "tag_list": [],
+         "custom_tag_ids": [],
          "feeling": "happy",
          "created_at": "2015-11-21T05:59:42.517Z"
        }
@@ -50,7 +51,8 @@ Content-Type: application/json
          "calendar_week": 47,
          "year": 2015,
          "reason": "Got a new place in the basement! :)",
-         "tag_list": ["Management", "Others"],
+         "tag_list": ["Management"],
+         "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
          "feeling": "satisfied",
          "created_at": "2015-11-18T19:18:42.517Z"
        }
@@ -85,7 +87,8 @@ rating             | Rating as a number between 0 - 100
 calendar_week      | Calendar week of the mood
 year               | Year of the mood
 reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array
+tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
 created_at         | Date of the mood creation (in ISO8601)
 
@@ -106,7 +109,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
     "attributes": {
       "feeling": "happy",
       "reason": "Got a new place in the basement! :)",
-      "tag_list": "Management;Others"
+      "tag_list": "Management",
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
     }
   }
 }
@@ -126,6 +130,7 @@ Content-Type: application/json
       "year": 2015,
       "reason": "Got a new place in the basement! :)",
       "tag_list": ["Management", "Others"],
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
       "feeling": "happy",
       "created_at": "2015-06-25T11:18:42.517Z"
     }
@@ -143,7 +148,8 @@ Parameter |          | Description
 ----------|----------|------------
 feeling   | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
 reason    | required | Text reason for the mood
-tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed)
+tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed) (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
 
 ### Response Attributes
 
@@ -153,7 +159,8 @@ rating             | Rating as a number between 0 - 100
 calendar_week      | Calendar week of the mood
 year               | Year of the mood
 reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array
+tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
 created_at         | Date of the mood creation (in ISO8601)
 
@@ -174,7 +181,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
     "attributes": {
       "feeling": "satisfied",
       "reason": "Got a new place in the basement! :)",
-      "tag_list": "Management;Others"
+      "tag_list": "Management",
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
     }
   }
 }
@@ -193,7 +201,8 @@ Content-Type: application/json
       "calendar_week": 25,
       "year": 2015,
       "reason": "Got a new place in the basement! :)",
-      "tag_list": ["Management", "Others"],
+      "tag_list": ["Management"],
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
       "feeling": "satisfied",
       "created_at": "2015-06-25T11:18:42.517Z"
     }
@@ -214,7 +223,8 @@ Parameter |          | Description
 ----------|----------|------------
 feeling   | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
 reason    | required | Text reason for the mood
-tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed)
+tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed) (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
 
 ### Response Attributes
 
@@ -224,7 +234,8 @@ rating             | Rating as a number between 0 - 100
 calendar_week      | Calendar week of the mood
 year               | Year of the mood
 reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array
+tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
 created_at         | Date of the mood creation (in ISO8601)
 
