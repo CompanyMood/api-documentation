@@ -40,6 +40,7 @@ Content-Type: application/json
          "tag_list": [],
          "custom_tag_ids": [],
          "feeling": "happy",
+         "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
          "created_at": "2015-11-21T05:59:42.517Z"
        }
      },
@@ -54,6 +55,7 @@ Content-Type: application/json
          "tag_list": ["Management"],
          "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
          "feeling": "satisfied",
+         "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
          "created_at": "2015-11-18T19:18:42.517Z"
        }
      }
@@ -93,6 +95,7 @@ reason             | Optional given reason
 tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
 custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id      | The moods department id
 created_at         | Date of the mood creation (in ISO8601)
 
 
@@ -135,6 +138,7 @@ Content-Type: application/json
       "tag_list": ["Management", "Others"],
       "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
       "feeling": "happy",
+      "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
       "created_at": "2015-06-25T11:18:42.517Z"
     }
   }
@@ -165,6 +169,7 @@ reason             | Optional given reason
 tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
 custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id      | The moods department id
 created_at         | Date of the mood creation (in ISO8601)
 
 
@@ -207,6 +212,7 @@ Content-Type: application/json
       "tag_list": ["Management"],
       "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
       "feeling": "satisfied",
+      "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
       "created_at": "2015-06-25T11:18:42.517Z"
     }
   }
@@ -240,6 +246,7 @@ reason             | Optional given reason
 tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
 custom_tag_ids     | list of `CustomTag`s IDs as Array
 feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id      | The moods department id
 created_at         | Date of the mood creation (in ISO8601)
 
 
