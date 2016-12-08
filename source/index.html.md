@@ -12,6 +12,7 @@ includes:
   - heartbeat
   - sessions
   - custom_tags
+  - departments
   - moods
 
 search: true
