@@ -62,14 +62,17 @@ Content-Type: application/json
 ```
 Request the moods for the logged in user.
 
-Possibility to filter the collection by `from` and `to` parameters.
+Possibility to filter the collection by `from`, `to`, `all_in_company`
+and `deparment_id`parameters.
 
 ### POST META Attributes
 
-Paramteter |          | Description |
------------|----------|-------------
-from       | optional | Date to limit the moods results (in ISO8601)
-to         | optional | Date to limit the moods results (in ISO8601)
+Paramteter       |          | Description |
+-----------------|----------|-------------
+from             | optional | Date to limit the moods results (in ISO8601)
+to               | optional | Date to limit the moods results (in ISO8601)
+all_in_company   | optional | Return all moods of that company (true or false) - only works for company admins
+department_id    | optional | Return all moods of that department (true or false) - only works for company admins
 
 ### Response META Attributes
 
