@@ -13,6 +13,7 @@ includes:
   - sessions
   - custom_tags
   - departments
+  - event_pins
   - moods
 
 search: true
