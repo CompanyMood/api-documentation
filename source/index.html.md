@@ -14,6 +14,7 @@ includes:
   - custom_tags
   - departments
   - event_pins
+  - terminal_spots
   - moods
 
 search: true
