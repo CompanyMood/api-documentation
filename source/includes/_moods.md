@@ -99,7 +99,7 @@ department_id      | The moods department id
 created_at         | Date of the mood creation (in ISO8601)
 
 
-## Create a new mood for last week
+## Create a new mood for last week - For the authorized user
 
 ```http
 POST /moods HTTP/1.1
@@ -151,12 +151,87 @@ You MUST provide a `reason` or at least one tag in the `tag_list` parameter.
 
 ### POST Attributes
 
-Parameter |          | Description
-----------|----------|------------
-feeling   | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
-reason    | required | Text reason for the mood
-tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed) (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
+Parameter      |          | Description
+---------------|----------|------------
+feeling        | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
+reason         | required | Text reason for the mood
+custom_tag_ids | required | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
+
+### Response Attributes
+
+Paramteter         | Description
+-------------------|------------
+rating             | Rating as a number between 0 - 100
+calendar_week      | Calendar week of the mood
+year               | Year of the mood
+reason             | Optional given reason
+tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
+custom_tag_ids     | list of `CustomTag`s IDs as Array
+feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id      | The moods department id
+created_at         | Date of the mood creation (in ISO8601)
+
+
+## Create a new mood for last week - For a terminal (no user get assigned)
+
+```http
+POST /moods HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v1+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+
+{
+  "data" : {
+    "type": "moods",
+    "attributes": {
+      "feeling": "happy",
+      "reason": "Got a new place in the basement! :)",
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "terminal_spot_id": "0f4d29f7-34e0-4ce9-b985-a90cccbd9f86",
+      "department_id": "f53ac2a2-2917-4b4a-84ac-8874f406dc97"
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
+    "type": "moods",
+    "attributes": {
+      "rating": 100,
+      "calendar_week": 25,
+      "year": 2015,
+      "reason": "Got a new place in the basement! :)",
+      "tag_list": ["Management", "Others"],
+      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "feeling": "happy",
+      "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
+      "created_at": "2015-06-25T11:18:42.517Z"
+    }
+  }
+}
+```
+
+Creates the mood for the latest calendar week.
+
+You MUST provide a `reason` or at least one tag in the `tag_list` parameter.
+
+### POST Attributes
+
+Parameter        |          | Description
+-----------------|----------|------------
+feeling          | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
+reason           | required | Text reason for the mood
+custom_tag_ids   | required | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
+terminal_spot_id | required | ID of the terminal spot for which you want to track the mood
+department_id    | required | ID of the department for which you want to track the terminals mood (need to be assigned to the particular terminal)
 
 ### Response Attributes
 
