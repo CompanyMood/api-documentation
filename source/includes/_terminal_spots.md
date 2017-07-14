@@ -62,7 +62,8 @@ Content-Type: application/json
     "id": "ea985df4-2c38-4c44-bda9-5bbe031f6755",
     "type": "departments",
     "attributes": {
-      "name": "DepartmentNo.3"
+      "name": "Design",
+      "breadcrumb": "German HQ > Development > Design"
     }
   }]
 }
@@ -86,6 +87,7 @@ Paramteter | Description
 -----------|------------
 id         | id of the terminal spot
 name       | name of the terminal spot
+breadcrumb | All names in path to the department incl. it's own
 
 #### side loaded terminal_spot_department_settings
 

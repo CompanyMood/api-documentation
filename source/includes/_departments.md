@@ -23,14 +23,16 @@ Content-Type: application/json
        "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
        "type": "departments",
        "attributes": {
-         "name": "Services"
+         "name": "Services",
+         "breadcrumb": "Development > In House > Services"
        }
      },
      {
        "id": "a9767fd1-a187-40e2-954c-872cebff5e70",
        "type": "departments",
        "attributes": {
-         "name": "Management"
+         "name": "Management",
+         "breadcrumb": "Management"
        }
      }
   ]
@@ -43,3 +45,4 @@ Paramteter | Description
 -----------|------------
 id         | id of the department
 name       | name
+breadcrumb | All names in path to the department incl. it's own
