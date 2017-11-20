@@ -34,7 +34,7 @@ There are a lot of different librabies for all kinds of languages out there to c
 ```http
 GET / HTTP/1.1
 Host: api.company-mood.com
-Accept: application/vnd.company-mood-v1+json
+Accept: application/vnd.company-mood-v2+json
 ```
 
 You need to specify the API version you want use via the `Accept`

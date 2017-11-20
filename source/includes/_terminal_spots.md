@@ -13,7 +13,7 @@ In this endpoint you'll get all dependend `departments` and `terminal_spot_depar
 GET /terminal_spots HTTP/1.1
 Host: api.company-mood.com
 Content-Type: application/json
-Accept: application/vnd.company-mood-v1+json
+Accept: application/vnd.company-mood-v2+json
 Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
 X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
 ```
