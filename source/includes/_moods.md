@@ -37,8 +37,7 @@ Content-Type: application/json
          "calendar_week": 46,
          "year": 2015,
          "reason": "It was pretty noisy this week",
-         "tag_list": [],
-         "custom_tag_ids": [],
+         "reasonings": [],
          "feeling": "happy",
          "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
          "created_at": "2015-11-21T05:59:42.517Z"
@@ -52,8 +51,13 @@ Content-Type: application/json
          "calendar_week": 47,
          "year": 2015,
          "reason": "Got a new place in the basement! :)",
-         "tag_list": ["Management"],
-         "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+         "reasonings": [
+           {
+             "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+             "feeling": "happy",
+             "reason": "The reason for happy custom tag"
+           }
+         ],
          "feeling": "satisfied",
          "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
          "created_at": "2015-11-18T19:18:42.517Z"
@@ -86,17 +90,19 @@ last_weeks_mood_id | ID of the last weeks mood for given user (can be empty, mea
 
 ### Response Attributes
 
-Paramteter         | Description
--------------------|------------
-rating             | Rating as a number between 0 - 100
-calendar_week      | Calendar week of the mood
-year               | Year of the mood
-reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array
-feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
-department_id      | The moods department id
-created_at         | Date of the mood creation (in ISO8601)
+Paramteter                  | Description
+----------------------------|------------
+rating                      | Rating as a number between 0 - 100
+calendar_week               | Calendar week of the mood
+year                        | Year of the mood
+reason                      | Optional given reason
+reasonings                  | list of reasonings as an array
+reasonings[custom_tag_id]   | ID of the custom tag for the reasoning
+reasonings[feeling]         | feeling for the reasoning
+reasonings[reason]          | reason for the reasoning as a string
+feeling                     | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id               | The moods department id
+created_at                  | Date of the mood creation (in ISO8601)
 
 
 ## Create a new mood for last week - For the authorized user
@@ -116,7 +122,13 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "feeling": "happy",
       "reason": "Got a new place in the basement! :)",
       "tag_list": "Management",
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ]
     }
   }
 }
@@ -135,8 +147,13 @@ Content-Type: application/json
       "calendar_week": 25,
       "year": 2015,
       "reason": "Got a new place in the basement! :)",
-      "tag_list": ["Management", "Others"],
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ],
       "feeling": "happy",
       "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
       "created_at": "2015-06-25T11:18:42.517Z"
@@ -151,25 +168,30 @@ You MUST provide a `reason` or at least one tag in the `tag_list` parameter.
 
 ### POST Attributes
 
-Parameter      |          | Description
----------------|----------|------------
-feeling        | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
-reason         | required | Text reason for the mood
-custom_tag_ids | required | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
+Parameter                   |          | Description
+----------------------------|----------|------------
+feeling                     | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
+reason                      | optional | Text reason for the mood
+reasonings                  | optional | list of reasonings as an array
+reasonings[custom_tag_id]   | required | ID of the custom tag for the reasoning
+reasonings[feeling]         | required | feeling for the reasoning
+reasonings[reason]          | optional | reason for the reasoning as a string
 
 ### Response Attributes
 
-Paramteter         | Description
--------------------|------------
-rating             | Rating as a number between 0 - 100
-calendar_week      | Calendar week of the mood
-year               | Year of the mood
-reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array
-feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
-department_id      | The moods department id
-created_at         | Date of the mood creation (in ISO8601)
+Paramteter                  | Description
+----------------------------|------------
+rating                      | Rating as a number between 0 - 100
+calendar_week               | Calendar week of the mood
+year                        | Year of the mood
+reason                      | Optional given reason
+reasonings                  | list of reasonings as an array
+reasonings[custom_tag_id]   | ID of the custom tag for the reasoning
+reasonings[feeling]         | feeling for the reasoning
+reasonings[reason]          | reason for the reasoning as a string
+feeling                     | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id               | The moods department id
+created_at                  | Date of the mood creation (in ISO8601)
 
 
 ## Create a new mood for last week - For a terminal (no user get assigned)
@@ -188,7 +210,13 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
     "attributes": {
       "feeling": "happy",
       "reason": "Got a new place in the basement! :)",
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ],
       "terminal_spot_id": "0f4d29f7-34e0-4ce9-b985-a90cccbd9f86",
       "department_id": "f53ac2a2-2917-4b4a-84ac-8874f406dc97"
     }
@@ -209,8 +237,13 @@ Content-Type: application/json
       "calendar_week": 25,
       "year": 2015,
       "reason": "Got a new place in the basement! :)",
-      "tag_list": ["Management", "Others"],
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ],
       "feeling": "happy",
       "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
       "created_at": "2015-06-25T11:18:42.517Z"
@@ -225,27 +258,32 @@ You MUST provide a `reason` or at least one tag in the `tag_list` parameter.
 
 ### POST Attributes
 
-Parameter        |          | Description
------------------|----------|------------
-feeling          | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
-reason           | required | Text reason for the mood
-custom_tag_ids   | required | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
-terminal_spot_id | required | ID of the terminal spot for which you want to track the mood
-department_id    | required | ID of the department for which you want to track the terminals mood (need to be assigned to the particular terminal)
+Parameter                   |          | Description
+----------------------------|----------|------------
+feeling                     | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
+reason                      | required | Text reason for the mood
+reasonings                  | optional | list of reasonings as an array
+reasonings[custom_tag_id]   | required | ID of the custom tag for the reasoning
+reasonings[feeling]         | required | feeling for the reasoning
+reasonings[reason]          | optional | reason for the reasoning as a string
+terminal_spot_id            | required | ID of the terminal spot for which you want to track the mood
+department_id               | required | ID of the department for which you want to track the terminals mood (need to be assigned to the particular terminal)
 
 ### Response Attributes
 
-Paramteter         | Description
--------------------|------------
-rating             | Rating as a number between 0 - 100
-calendar_week      | Calendar week of the mood
-year               | Year of the mood
-reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array
-feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
-department_id      | The moods department id
-created_at         | Date of the mood creation (in ISO8601)
+Paramteter                  | Description
+----------------------------|------------
+rating                      | Rating as a number between 0 - 100
+calendar_week               | Calendar week of the mood
+year                        | Year of the mood
+reason                      | Optional given reason
+reasonings                  | list of reasonings as an array
+reasonings[custom_tag_id]   | ID of the custom tag for the reasoning
+reasonings[feeling]         | feeling for the reasoning
+reasonings[reason]          | reason for the reasoning as a string
+feeling                     | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id               | The moods department id
+created_at                  | Date of the mood creation (in ISO8601)
 
 
 ## Update a mood
@@ -264,8 +302,13 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
     "attributes": {
       "feeling": "satisfied",
       "reason": "Got a new place in the basement! :)",
-      "tag_list": "Management",
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ]
     }
   }
 }
@@ -284,8 +327,13 @@ Content-Type: application/json
       "calendar_week": 25,
       "year": 2015,
       "reason": "Got a new place in the basement! :)",
-      "tag_list": ["Management"],
-      "custom_tag_ids": ["f7559f2a-8f1c-461e-8a9b-7efea5564edb"],
+      "reasonings": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "feeling": "happy",
+          "reason": "The reason for happy custom tag"
+        }
+      ],
       "feeling": "satisfied",
       "department_id": "a9767fd1-a187-40e2-954c-872cebff5e70",
       "created_at": "2015-06-25T11:18:42.517Z"
@@ -301,28 +349,32 @@ You can only update the mood for last calendar week and if its creation
 
 You MUST provide a `reason` or at least one tag in the `tag_list` parameter.
 
-### POST Attributes
+### PUT Attributes
 
-Parameter |          | Description
-----------|----------|------------
-feeling   | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
-reason    | required | Text reason for the mood
-tag_list  | required | `CustomTag`s for the mood seperated by a `;` (Only tags from `/custom_tags` allowed) (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array (Only tags from `/custom_tags` allowed)
+Parameter                   |          | Description
+----------------------------|----------|------------
+feeling                     | required | Feeling of the mood can be ("sad", "unhappy", "ok", "satisfied", "happy") - in rating it's 0, 25, 50, 75, 100
+reason                      | required | Text reason for the mood
+reasonings                  | optional | list of reasonings as an array
+reasonings[custom_tag_id]   | required | ID of the custom tag for the reasoning
+reasonings[feeling]         | required | feeling for the reasoning
+reasonings[reason]          | optional | reason for the reasoning as a string
 
 ### Response Attributes
 
-Paramteter         | Description
--------------------|------------
-rating             | Rating as a number between 0 - 100
-calendar_week      | Calendar week of the mood
-year               | Year of the mood
-reason             | Optional given reason
-tag_list           | tag list of `CustomTag`s as Array (DEPRECATED)
-custom_tag_ids     | list of `CustomTag`s IDs as Array
-feeling            | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
-department_id      | The moods department id
-created_at         | Date of the mood creation (in ISO8601)
+Paramteter                | Description
+--------------------------|------------
+rating                    | Rating as a number between 0 - 100
+calendar_week             | Calendar week of the mood
+year                      | Year of the mood
+reason                    | Optional given reason
+reasonings                | list of reasonings as an array
+reasonings[custom_tag_id] | ID of the custom tag for the reasoning
+reasonings[feeling]       | feeling for the reasoning
+reasonings[reason]        | reason for the reasoning as a string
+feeling                   | Feeling of the mood (happy, satisfied, ok, unhappy, sad)
+department_id             | The moods department id
+created_at                | Date of the mood creation (in ISO8601)
 
 
 ## Delete a mood
