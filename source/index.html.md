@@ -6,7 +6,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://www.company-mood.com'>Get your CompanyMood account now</a>
-  - © 2016 CompanyMood
+  - © 2018 CompanyMood
 
 includes:
   - heartbeat
