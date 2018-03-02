@@ -12,6 +12,7 @@ includes:
   - heartbeat
   - sessions
   - custom_tags
+  - companies
   - departments
   - event_pins
   - terminal_spots
