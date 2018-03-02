@@ -315,7 +315,7 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
 ```
 
 ```http
-HTTP/1.1 201 CREATED
+HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
