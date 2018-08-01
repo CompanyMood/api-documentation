@@ -1,21 +1,19 @@
-# Sessions
+# Oauth
 
-## Create a new session
+## Sign in via google oauth
 
 ```http
-POST /sessions HTTP/1.1
+POST /oauth/google_oauth2 HTTP/1.1
 Host: api.company-mood.com
 Content-Type: application/json
 Accept: application/vnd.company-mood-v2+json
-Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
 X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
 
 {
   "data": {
-    "type": "sessions",
+    "type": "oauth",
     "attributes": {
-      "email": "valid@example.com",
-      "password": "secret"
+      "id_token": "INSERT ID TOKEN HERE"
     }
   }
 }
@@ -43,7 +41,8 @@ Content-Type: application/json
 }
 ```
 
-You can create a new session and get the `auth_token` and other important informations about the just logged in user by sending the `email` and `password` to this endpoint.
+You can create a new oauth session and get the `auth_token` and other important informations
+about the just logged in user by sending a `id_token` to this endpoint.
 
 The returned role can be "admin", "employee" or "department_manager".
 
@@ -51,8 +50,7 @@ The returned role can be "admin", "employee" or "department_manager".
 
 Paramteter | Description
 -----------|------------
-email      | Email for session
-password   | Password for session
+id_token   | Request this token from google auth api (see <https://developers.google.com/identity/sign-in/web/sign-in>)
 
 ### Response Attributes
 

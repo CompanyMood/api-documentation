@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - heartbeat
   - sessions
+  - oauth
   - custom_tags
   - companies
   - departments
@@ -28,7 +29,7 @@ This is the documentation for the API of
 
 This API follows the [JSONAPI specification](http://jsonapi.org/format/) but without hypermedia.
 
-There are a lot of different librabies for all kinds of languages out there to consume JSON-API APIs.
+There are a lot of different libraries for all kinds of languages out there to consume JSON-API APIs.
 
 # API Request and Versions
 
@@ -70,4 +71,4 @@ Host: api.company-mood.com
 Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
 ```
 
-For every authenticated request (all but `/sessions`) you need to send the `auth_token` (see `/sessions` endpoint) in the `Authorization` header as a `Bearer` token.
+For every authenticated request (all but `/sessions` and `/oauth`) you need to send the `auth_token` (see `/sessions` endpoint) in the `Authorization` header as a `Bearer` token.
