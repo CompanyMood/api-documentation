@@ -18,6 +18,7 @@ includes:
   - event_pins
   - terminal_spots
   - moods
+  - passwords
 
 search: true
 ---
@@ -71,4 +72,4 @@ Host: api.company-mood.com
 Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
 ```
 
-For every authenticated request (all but `/sessions` and `/oauth`) you need to send the `auth_token` (see `/sessions` endpoint) in the `Authorization` header as a `Bearer` token.
+For every authenticated request (all but `/sessions`, `/oauth` and `/password-resets`) you need to send the `auth_token` (see `/sessions` endpoint) in the `Authorization` header as a `Bearer` token.

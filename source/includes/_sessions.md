@@ -49,14 +49,14 @@ The returned role can be "admin", "employee" or "department_manager".
 
 ### POST Attributes
 
-Paramteter | Description
+Parameter | Description
 -----------|------------
 email      | Email for session
 password   | Password for session
 
 ### Response Attributes
 
-Paramteter | Description
+Parameter | Description
 -----------|------------
 firstname  | Firstname of the sessions user
 lastname   | Lastname of the sessions user
