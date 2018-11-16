@@ -19,6 +19,7 @@ includes:
   - terminal_spots
   - moods
   - passwords
+  - widgets
 
 search: true
 ---
