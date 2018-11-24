@@ -16,6 +16,7 @@ includes:
   - companies
   - departments
   - event_pins
+  - tasks
   - terminal_spots
   - moods
   - passwords
