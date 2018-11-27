@@ -1,7 +1,7 @@
 # CustomTags
 
 ## Retrieve the tags pool for logged in user
-Custom tags specify the tags you can use to describe your mood.  It's `id` and `name` is the same value.
+Custom tags specify the tags you can use to describe your mood.
 Returns with an 401 if the user does not belong to a company.
 
 ```http
@@ -25,7 +25,8 @@ Content-Type: application/json
        "attributes": {
          "name": "Workload",
          "de_translation": "Arbeitspensum",
-         "en_translation": "Workload"
+         "en_translation": "Workload",
+         "fr_translation": "Charge de travail"
        }
      },
      {
@@ -34,7 +35,8 @@ Content-Type: application/json
        "attributes": {
          "name": "Private",
          "de_translation": "Privat",
-         "en_translation": "Private"
+         "en_translation": "Private",
+         "fr_translation": "Privé"
        }
      },
      {
@@ -43,7 +45,8 @@ Content-Type: application/json
        "attributes": {
          "name": "Management",
          "de_translation": "Vorgesetzte",
-         "en_translation": "Management"
+         "en_translation": "Management",
+         "fr_translation": "Responsables"
        }
      }
   ]
