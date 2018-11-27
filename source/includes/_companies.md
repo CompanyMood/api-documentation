@@ -51,10 +51,10 @@ id                                  | id of the company
 name                                | name of the company
 anonymous_tracking                  | Does the company track anonymous?
 certificate_active                  | Is the companies certificate active?
-certificate_type                    | Certificate type ["green" | "gold"]
+certificate_type                    | Certificate type ["green", "gold"]
 certificate_id                      | The certificated UUID
 created_at                          | Timestamp of the company creation
-frequency_period                    | Tracking frequency period ["daily" | "weeks" | "months"]
+frequency_period                    | Tracking frequency period ["daily", "weeks", "months"]
 frequency_amount                    | Tracking frequency amount [1..3]
 mood_creation_notification_on       | Weekday for mood creation (notification and creation forcing)
 mood_creation_notification_on_hours | Hour for the mood creation (notification and creation forcing)
