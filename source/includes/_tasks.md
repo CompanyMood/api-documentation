@@ -22,7 +22,7 @@ Content-Type: application/json
        "type": "tasks",
        "attributes": {
          "name": "Implement CompanyMood",
-         "description": "Implement continious Mood monitoring",
+         "description": "Implement continuous Mood monitoring",
          "percent": 100,
          "state": "implemented",
          "created_at": "2018-03-11"
