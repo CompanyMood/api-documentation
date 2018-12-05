@@ -97,7 +97,7 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "ranking",
+      "id": "rankings",
       "type": "widgets",
       "attributes": {
         "company_wide_ranking": 23,
