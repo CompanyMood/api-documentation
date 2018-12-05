@@ -77,3 +77,46 @@ type               | Type of returned widgets
 Paramteter | Description
 -----------|------------
 id         | The widget identifier
+
+
+## Rankings
+
+```http
+GET /widgets/rankings HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": [
+    {
+      "id": "rankings",
+      "type": "widgets",
+      "attributes": {
+        "company_wide_ranking": 23,
+        "company_employee_amount": 120,
+        "department_wide_ranking": 12,
+        "department_employee_amount": 30
+      }
+    }
+  ]
+}
+```
+
+The `/widgets/rankings` endpoint returns the ranking data for the current user.
+
+### Response Attributes
+
+Paramteter                 | Description
+---------------------------|-------------
+company_wide_ranking       | Current user rank of all company employees. 0 if not available.
+company_employee_amount    | Employee amount of current user company.
+department_wide_ranking    | Current user rank of all. 0 if not available.
+department_employee_amount | Employee amount of current user department. 0 if not available.
