@@ -12,13 +12,14 @@ includes:
   - heartbeat
   - sessions
   - oauth
-  - custom_tags
   - companies
+  - custom_tags
   - departments
   - event_pins
+  - moods
   - tasks
   - terminal_spots
-  - moods
+  - suggestions
   - passwords
   - widgets
 
