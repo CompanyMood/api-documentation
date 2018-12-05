@@ -78,6 +78,69 @@ Paramteter | Description
 -----------|------------
 id         | The widget identifier
 
+## Company Average Mood
+
+```http
+GET /widgets/company-average-mood HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "company-average-mood",
+    "type": "widgets",
+    "attributes": {
+      "data": [
+        {
+          "from": "2018-10-29",
+          "to": "2018-11-04",
+          "participation_ratio": 33,
+          "happiness_score": 20
+        },
+        {
+          "from": "2018-11-05",
+          "to": "2018-11-11",
+          "participation_ratio": 36,
+          "happiness_score": 25
+        },
+        {
+          "from": "2018-11-12",
+          "to": "2018-11-18",
+          "participation_ratio": 40,
+          "happiness_score": 19
+        },
+        {
+          "from": "2018-11-19",
+          "to": "2018-11-25",
+          "participation_ratio": 38,
+          "happiness_score": 35
+        }
+      ]
+    }
+  }
+}
+```
+
+This endpoint returns average mood information for the last four tracking periods
+of the current users company.
+
+### Response Attributes
+
+Paramteter          | Description
+--------------------|--------------
+from                | Start date of the tracking period
+to                  | End date of the tracking period
+participation_ratio | Employee participation ratio in percent
+happiness_score     | Average happiness score for the tracking period
+
 ## Department Average Mood
 
 ```http
