@@ -45,7 +45,8 @@ Creates a suggestion for the current user with the given details.
 
 You MUST provide a `feeling`, `content` and a `custom_tag`.
 The suggestion will be anonymous by default if you don't provide
-a `not_anonymous` parameter.
+a `not_anonymous` parameter. If your company is setup to not allow anonymous suggestions it will be always `true`.
+
 
 ### POST Attributes
 
@@ -54,7 +55,7 @@ Paramteter       |          | Description
 content          | required | The suggestion content.
 feeling          | required | Feeling of the suggestion can be ("sad", "unhappy", "ok", "satisfied", "happy").
 custom_tag_id    | required | ID of the custom tag for the suggestion.
-not_anonymous    | optional | Create not anonymous suggestion. True or false. False if not given.
+not_anonymous    | optional | Create not anonymous suggestion. True or false. `false` by default if not given. Always `true` if company is setup to not allow anonymous suggestions.
 
 ### Response Attributes
 
@@ -63,5 +64,5 @@ Paramteter         | Description
 content            | The suggestion content
 feeling            | Feeling of the suggestion can be ("sad", "unhappy", "ok", "satisfied", "happy")
 custom_tag_id      | ID of the custom tag for the suggestion
-not_anonymous      | Boolean value. Displays if suggestion is anonymous or not
+not_anonymous      | Boolean value. Displays if suggestion is anonymous or not.
 created_at         | Date of the suggestion creation (in ISO8601)
