@@ -36,7 +36,8 @@ Content-Type: application/json
          "mood_creation_notification_on_weeks": 4,
          "mood_creation_reminder_on": 5,
          "mood_creation_reminder_on_hours": 17,
-         "mood_creation_reminder_on_weeks": 2
+         "mood_creation_reminder_on_weeks": 2,
+         "allow_anonymous_suggestions": true
        }
      }
   ]
@@ -62,6 +63,7 @@ mood_creation_notification_on_weeks | Week for the mood creation (notification a
 mood_creation_reminder_on           | Weekday for mood creation reminder notification
 mood_creation_reminder_on_hours     | Hour for the mood creation reminder notification
 mood_creation_reminder_on_weeks     | Week for the mood creation reminder notification
+allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
 
 
 ## Update a company
@@ -88,7 +90,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
          "mood_creation_notification_on_weeks": 4,
          "mood_creation_reminder_on": 5,
          "mood_creation_reminder_on_hours": 17,
-         "mood_creation_reminder_on_weeks": 2
+         "mood_creation_reminder_on_weeks": 2,
+         "allow_anonymous_suggestions": false
        }
      }
   ]
@@ -118,7 +121,8 @@ Content-Type: application/json
          "mood_creation_notification_on_weeks": 4,
          "mood_creation_reminder_on": 5,
          "mood_creation_reminder_on_hours": 17,
-         "mood_creation_reminder_on_weeks": 2
+         "mood_creation_reminder_on_weeks": 2,
+         "allow_anonymous_suggestions": false
        }
      }
   ]
@@ -139,6 +143,7 @@ mood_creation_notification_on_weeks | Week for the mood creation (notification a
 mood_creation_reminder_on           | Weekday for mood creation reminder notification
 mood_creation_reminder_on_hours     | Hour for the mood creation reminder notification
 mood_creation_reminder_on_weeks     | Week for the mood creation reminder notification
+allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
 
 ### Response Attributes
 
@@ -159,3 +164,4 @@ mood_creation_notification_on_weeks | Week for the mood creation (notification a
 mood_creation_reminder_on           | Weekday for mood creation reminder notification
 mood_creation_reminder_on_hours     | Hour for the mood creation reminder notification
 mood_creation_reminder_on_weeks     | Week for the mood creation reminder notification
+allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
