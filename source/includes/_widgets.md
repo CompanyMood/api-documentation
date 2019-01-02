@@ -204,6 +204,94 @@ to                  | End date of the tracking period
 participation_ratio | Employee participation ratio in percent
 happiness_score     | Average happiness score for the tracking period
 
+## Company participation
+
+```http
+GET /widgets/company-participation HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "company-participation",
+    "type": "widgets",
+    "attributes": {
+      "moods_count": 2,
+      "employee_amount": 10,
+      "participation_in_percent": 12,
+      "moods_details": [
+        { "feeling": "sad", "percent": 50, "count": 1 },
+        { "feeling": "happy", "percent": 50, "count": 1 },
+      ]
+    }
+  }
+}
+```
+
+This endpoint returns participation statistics for the current users company
+and the current tracking period.
+
+### Response Attributes
+
+Paramteter          | Description
+--------------------|--------------
+moods_count         | Amount of moods in current tracking period for current user company.
+employee_amount     | Current user company total employee amount
+percent             | Participation in percent
+moods_details       | An array of objects with details for each mood group.
+
+## Department participation
+
+```http
+GET /widgets/department-participation HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "department-participation",
+    "type": "widgets",
+    "attributes": {
+      "moods_count": 2,
+      "employee_amount": 10,
+      "participation_in_percent": 12,
+      "moods_details": [
+        { "feeling": "sad", "percent": 50, "count": 1 },
+        { "feeling": "happy", "percent": 50, "count": 1 },
+      ]
+    }
+  }
+}
+```
+
+This endpoint returns participation statistics for the current users department
+and the current tracking period.
+
+### Response Attributes
+
+Paramteter          | Description
+--------------------|--------------
+moods_count         | Amount of moods in current tracking period for current user department.
+employee_amount     | Current user department total employee amount
+percent             | Participation in percent
+moods_details       | An array of objects with details for each mood group
+
 ## Rankings
 
 ```http
@@ -220,18 +308,16 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "data": [
-    {
-      "id": "rankings",
-      "type": "widgets",
-      "attributes": {
-        "company_wide_ranking": 23,
-        "company_employee_amount": 120,
-        "department_wide_ranking": 12,
-        "department_employee_amount": 30
-      }
+  "data": {
+    "id": "rankings",
+    "type": "widgets",
+    "attributes": {
+      "company_wide_ranking": 23,
+      "company_employee_amount": 120,
+      "department_wide_ranking": 12,
+      "department_employee_amount": 30
     }
-  ]
+  }
 }
 ```
 
