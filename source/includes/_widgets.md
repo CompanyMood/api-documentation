@@ -204,6 +204,79 @@ to                  | End date of the tracking period
 participation_ratio | Employee participation ratio in percent
 happiness_score     | Average happiness score for the tracking period
 
+## Company happiness score
+
+```http
+GET /widgets/company-happiness-score HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "company-happiness-score",
+    "type": "widgets",
+    "attributes": {
+      "happiness_score": 20.3,
+      "feeling": "ok"
+    }
+  }
+}
+```
+
+This endpoint returns the happiness score widget information for the current period and current user company.
+
+### Response Attributes
+
+Paramteter          | Description
+--------------------|--------------
+happiness_score     | Happiness score for the current tracking period and current user company.
+feeling             | Can be 'sad', 'unhappy', 'ok', 'satisfied' or 'happy'.
+
+## Department happiness score
+
+```http
+GET /widgets/department-happiness-score HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "department-happiness-score",
+    "type": "widgets",
+    "attributes": {
+      "happiness_score": 20.3,
+      "feeling": "ok"
+    }
+  }
+}
+```
+
+This endpoint returns the happiness score widget information for the current period
+and department of the current user.
+
+### Response Attributes
+
+Paramteter          | Description
+--------------------|--------------
+happiness_score     | Happiness score for the current tracking period and current user department
+feeling             | Can be 'sad', 'unhappy', 'ok', 'satisfied' or 'happy'.
+
 ## Company participation
 
 ```http
@@ -226,7 +299,7 @@ Content-Type: application/json
     "attributes": {
       "moods_count": 2,
       "employee_amount": 10,
-      "participation_in_percent": 12,
+      "participation_in_percent": 20,
       "moods_details": [
         { "feeling": "sad", "percent": 50, "count": 1 },
         { "feeling": "happy", "percent": 50, "count": 1 },
@@ -270,7 +343,7 @@ Content-Type: application/json
     "attributes": {
       "moods_count": 2,
       "employee_amount": 10,
-      "participation_in_percent": 12,
+      "participation_in_percent": 20,
       "moods_details": [
         { "feeling": "sad", "percent": 50, "count": 1 },
         { "feeling": "happy", "percent": 50, "count": 1 },
