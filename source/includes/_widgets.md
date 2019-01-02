@@ -241,12 +241,12 @@ and the current tracking period.
 
 ### Response Attributes
 
-Paramteter          | Description
---------------------|--------------
-moods_count         | Amount of moods in current tracking period for current user company.
-employee_amount     | Current user company total employee amount
-percent             | Participation in percent
-moods_details       | An array of objects with details for each mood group.
+Paramteter               | Description
+-------------------------|--------------
+moods_count              | Amount of moods in current tracking period for current user company.
+employee_amount          | Current user company total employee amount
+participation_in_percent | Participation in percent
+moods_details            | An array of objects with details for each mood group.
 
 ## Department participation
 
@@ -285,12 +285,12 @@ and the current tracking period.
 
 ### Response Attributes
 
-Paramteter          | Description
---------------------|--------------
-moods_count         | Amount of moods in current tracking period for current user department.
-employee_amount     | Current user department total employee amount
-percent             | Participation in percent
-moods_details       | An array of objects with details for each mood group
+Paramteter               | Description
+-------------------------|--------------
+moods_count              | Amount of moods in current tracking period for current user department.
+employee_amount          | Current user department total employee amount
+participation_in_percent | Participation in percent
+moods_details            | An array of objects with details for each mood group
 
 ## Rankings
 
