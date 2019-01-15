@@ -21,6 +21,7 @@ includes:
   - terminal_spots
   - suggestions
   - passwords
+  - public_announcements
   - widgets
 
 search: true
