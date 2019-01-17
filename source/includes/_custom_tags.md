@@ -24,7 +24,18 @@ Content-Type: application/json
        "type": "custom_tags",
        "attributes": {
          "name": "Workload",
-         "de_translation": "Arbeitspensum",
+         "labels": {
+           "de": "Auslastung",
+           "en": "Workload",
+           "fr": "Charge de travail",
+           "es": "Carga de trabajo",
+           "it": "Carico di lavoro",
+           "nl": "Werkbelasting",
+           "pl": "Obciążenie pracą",
+           "pt": "Carga de trabalho",
+           "ru": "Рабочая нагрузка"
+         },
+         "de_translation": "Auslastung",
          "en_translation": "Workload",
          "fr_translation": "Charge de travail"
        }
@@ -33,7 +44,18 @@ Content-Type: application/json
        "id": "c23e5e7d-162f-4fdc-9243-5e6349ce2bd1",
        "type": "custom_tags",
        "attributes": {
-         "name": "Private",
+         "name": "Privat",
+         "labels": {
+           "de": "Privat",
+           "en": "Private",
+           "fr": "Privé",
+           "es": null,
+           "it": null,
+           "nl": null,
+           "pl": null,
+           "pt": null,
+           "ru": null
+         },
          "de_translation": "Privat",
          "en_translation": "Private",
          "fr_translation": "Privé"
@@ -44,6 +66,17 @@ Content-Type: application/json
        "type": "custom_tags",
        "attributes": {
          "name": "Management",
+         "labels": {
+           "de": "Führungskräfte",
+           "en": "Managers",
+           "fr": "Managers / Responsables",
+           "es": "personal directivo",
+           "it": "Personale direttivo",
+           "nl": "Leidinggevenden",
+           "pl": "Menedżerowie",
+           "pt": "Gerentes",
+           "ru": "Менеджеры"
+         },
          "de_translation": "Vorgesetzte",
          "en_translation": "Management",
          "fr_translation": "Responsables"
@@ -59,5 +92,7 @@ Paramteter     | Description
 ---------------|------------
 id             | id of the tag (used for `custom_tag_ids` in mood creation)
 name           | name (DEPRECATED)
-de_translation | German translation of the tag
-en_translation | English translation of the tag
+labels         | An object of translations of the custom tag name.
+de_translation | German translation of the tag (DEPRECATED)
+en_translation | English translation of the tag (DEPRECATED)
+fr_translation | English translation of the tag (DEPRECATED)
