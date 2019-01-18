@@ -385,22 +385,21 @@ Content-Type: application/json
     "id": "company-custom-tags",
     "type": "widgets",
     "attributes": {
-      "total_moods_count": 10,
+      "total_moods_count": 3,
       "custom_tag_details": [
         {
-          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-          "moods_count": 6,
+          "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
+          "moods_count": 2,
           "feeling_details": [
-            { "name": "ok", "percent": 50.0, "count": 3 },
-            { "name": "happy", "percent": 50.0, "count": 3 }
+            { "name": "unhappy", "percent": 50.0, "moods_count": 1 },
+            { "name": "sad", "percent": 50.0, "moods_count": 1 }
           ]
         },
         {
-          "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
-          "moods_count": 4,
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "moods_count": 1,
           "feeling_details": [
-            { "name": "sad", "percent": 50.0, "count": 2 },
-            { "name": "unhappy", "percent": 50.0, "count": 2 }
+            { "name": "ok", "percent": 100.0, "moods_count": 1 },
           ]
         }
       ]
@@ -412,6 +411,7 @@ Content-Type: application/json
 This endpoint returns the custom tag widget (Top X custom tags) data for the current
 user company and the current tracking period. The response doesn't include custom tags or
 feelings where no moods has been given in the current tracking period.
+The `custom_tag_details` attribute will be an empty Array if no custom tag has any moods.
 
 ### Response Attributes
 
