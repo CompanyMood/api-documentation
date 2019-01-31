@@ -58,7 +58,7 @@ You can use the returned `id`'s to request the data for specific widgets with a 
 
 ### GET META Attributes
 
-Paramteter       |          | Description
+Parameter        |          | Description
 -----------------|----------|-------------
 type             | optional | Filter widgets by type
 
@@ -68,13 +68,13 @@ type             | optional | Filter widgets by type
 
 ### Response META Attributes
 
-Paramteter         | Description
+Parameter          | Description
 -------------------|------------
 type               | Type of returned widgets
 
 ### Response Attributes
 
-Paramteter | Description
+Parameter  | Description
 -----------|------------
 id         | The widget identifier
 
@@ -134,7 +134,7 @@ of the current users company.
 
 ### Response Attributes
 
-Paramteter          | Description
+Parameter           | Description
 --------------------|--------------
 from                | Start date of the tracking period
 to                  | End date of the tracking period
@@ -197,7 +197,7 @@ of the current users department.
 
 ### Response Attributes
 
-Paramteter          | Description
+Parameter           | Description
 --------------------|--------------
 from                | Start date of the tracking period
 to                  | End date of the tracking period
@@ -235,7 +235,7 @@ This endpoint returns the happiness score widget information for the current per
 
 ### Response Attributes
 
-Paramteter          | Description
+Parameter           | Description
 --------------------|--------------
 happiness_score     | Happiness score for the current tracking period and current user company.
 feeling             | Can be 'sad', 'unhappy', 'ok', 'satisfied' or 'happy'.
@@ -272,7 +272,7 @@ and department of the current user.
 
 ### Response Attributes
 
-Paramteter          | Description
+Parameter           | Description
 --------------------|--------------
 happiness_score     | Happiness score for the current tracking period and current user department
 feeling             | Can be 'sad', 'unhappy', 'ok', 'satisfied' or 'happy'.
@@ -302,7 +302,7 @@ Content-Type: application/json
       "participation_in_percent": 20,
       "moods_details": [
         { "feeling": "sad", "percent": 50, "count": 1 },
-        { "feeling": "happy", "percent": 50, "count": 1 },
+        { "feeling": "happy", "percent": 50, "count": 1 }
       ]
     }
   }
@@ -314,7 +314,7 @@ and the current tracking period.
 
 ### Response Attributes
 
-Paramteter               | Description
+Parameter                | Description
 -------------------------|--------------
 moods_count              | Amount of moods in current tracking period for current user company.
 employee_amount          | Current user company total employee amount
@@ -358,12 +358,134 @@ and the current tracking period.
 
 ### Response Attributes
 
-Paramteter               | Description
+Parameter                | Description
 -------------------------|--------------
 moods_count              | Amount of moods in current tracking period for current user department.
 employee_amount          | Current user department total employee amount
 participation_in_percent | Participation in percent
 moods_details            | An array of objects with details for each mood group
+
+## Company custom tags
+
+```http
+GET /widgets/company-custom-tags HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "company-custom-tags",
+    "type": "widgets",
+    "attributes": {
+      "total_moods_count": 3,
+      "custom_tag_details": [
+        {
+          "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
+          "moods_count": 2,
+          "feeling_details": [
+            { "name": "unhappy", "percent": 50.0, "moods_count": 1 },
+            { "name": "sad", "percent": 50.0, "moods_count": 1 }
+          ]
+        },
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "moods_count": 1,
+          "feeling_details": [
+            { "name": "ok", "percent": 100.0, "moods_count": 1 },
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+This endpoint returns the custom tag widget (Top X custom tags) data for the current
+user company and the current tracking period. The response doesn't include custom tags or
+feelings where no moods has been given in the current tracking period.
+The `custom_tag_details` attribute will be an empty Array if no custom tag has any moods.
+
+### Response Attributes
+
+Parameter                                    | Description
+---------------------------------------------|--------------
+total_moods_count                            | Total amount of moods in current tracking period for current user company.
+custom_tag_details                           | An Array of objects with mood details for each custom tag.
+custom_tag_details[custom_tag_id]            | ID of the custom tag.
+custom_tag_details[moods_count]              | Amount of given moods for the custom tag.
+custom_tag_details[feeling_details]          | An Array of objects with details for each feeling where moods exist.
+custom_tag_details[feeling_details][name]    | The identifier of the feeling.
+custom_tag_details[feeling_details][percent] | Percentage of total given moods for the current custom tag.
+custom_tag_details[feeling_details][count]   | Amount of moods given for the current feeling and custom tag.
+
+## Department custom tags
+
+```http
+GET /widgets/department-custom-tags HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "department-custom-tags",
+    "type": "widgets",
+    "attributes": {
+      "total_moods_count": 10,
+      "custom_tag_details": [
+        {
+          "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+          "moods_count": 6,
+          "feeling_details": [
+            { "name": "ok", "percent": 50.0, "count": 3 },
+            { "name": "happy", "percent": 50.0, "count": 3 }
+          ]
+        },
+        {
+          "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
+          "moods_count": 4,
+          "feeling_details": [
+            { "name": "sad", "percent": 50.0, "count": 2 },
+            { "name": "unhappy", "percent": 50.0, "count": 2 }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+This endpoint returns the custom tag widget (Top X custom tags) data for the current
+user department and the current tracking period. The response doesn't include custom tags or
+feelings where no moods has been given in the current tracking period.
+
+### Response Attributes
+
+Parameter                                    | Description
+---------------------------------------------|--------------
+total_moods_count                            | Total amount of moods in current tracking period for current user department.
+custom_tag_details                           | An Array of objects with mood details for each custom tag.
+custom_tag_details[custom_tag_id]            | ID of the custom tag.
+custom_tag_details[moods_count]              | Amount of given moods for the custom tag.
+custom_tag_details[feeling_details]          | An Array of objects with details for each feeling where moods exist.
+custom_tag_details[feeling_details][name]    | The identifier of the feeling.
+custom_tag_details[feeling_details][percent] | Percentage of total given moods for the current custom tag.
+custom_tag_details[feeling_details][count]   | Amount of moods given for the current feeling and custom tag.
 
 ## Rankings
 
@@ -398,7 +520,7 @@ The `/widgets/rankings` endpoint returns the ranking data for the current user.
 
 ### Response Attributes
 
-Paramteter                 | Description
+Parameter                  | Description
 ---------------------------|-------------
 company_wide_ranking       | Current user rank of all company employees. 0 if not available.
 company_employee_amount    | Employee amount of current user company.
