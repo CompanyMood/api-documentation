@@ -19,7 +19,7 @@ Content-Type: application/json
   "data": [
     {
       "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-      "type": "public_announcements",
+      "type": "public-announcements",
       "attributes": {
         "creator_name": "Jovanni Williamson",
         "content": "Awesome public announcement",
@@ -34,7 +34,7 @@ Content-Type: application/json
     },
     {
       "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-      "type": "public_announcements",
+      "type": "public-announcements",
       "attributes": {
         "creator_name": "Sammy Nonetti",
         "content": "We created a survey for our upcoming team event. Please participate.",
