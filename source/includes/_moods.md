@@ -71,7 +71,7 @@ Request the moods for the logged in user.
 Possibility to filter the collection by `from`, `to`, `all_in_company`
 and `deparment_id`parameters.
 
-### POST META Attributes
+### GET META Attributes
 
 Paramteter       |          | Description |
 -----------------|----------|-------------
