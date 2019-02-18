@@ -17,6 +17,7 @@ includes:
   - departments
   - event_pins
   - moods
+  - settings
   - tasks
   - terminal_spots
   - suggestions

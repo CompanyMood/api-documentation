@@ -46,7 +46,7 @@ Content-Type: application/json
 
 ### Response Attributes
 
-Paramteter                          | Description
+Parameter                           | Description
 ------------------------------------|------------
 id                                  | id of the company
 name                                | name of the company
@@ -131,7 +131,7 @@ Content-Type: application/json
 
 ### PUT Attributes
 
-Paramteter                          | Description
+Parameter                           | Description
 ------------------------------------|------------
 name                                | name of the company
 certificate_active                  | Is the companies certificate active?
@@ -147,7 +147,7 @@ allow_anonymous_suggestions         | Is it allowed to create anonymous suggesti
 
 ### Response Attributes
 
-Paramteter                          | Description
+Parameter                           | Description
 ------------------------------------|------------
 id                                  | id of the company
 name                                | name of the company
