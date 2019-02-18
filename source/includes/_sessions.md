@@ -37,7 +37,12 @@ Content-Type: application/json
       "image_url": "https://gravatar.com/avatar/829afce351884fcde132544bf9686221",
       "role": "admin",
       "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83",
-      "company_id": "8f40670c-9927-4712-979f-81a2fa4c7253"
+      "company_id": "8f40670c-9927-4712-979f-81a2fa4c7253",
+      "mood_creation_notification_email_active": true,
+      "mood_creation_reminder_email_active": true,
+      "mood_creation_notification_push_notification_active": true,
+      "mood_creation_reminder_push_notification_active": true,
+      "weekly_status_notification_active": true
     }
   }
 }
@@ -58,11 +63,16 @@ password   | Password for session
 
 Parameter | Description
 -----------|------------
-firstname  | Firstname of the sessions user
-lastname   | Lastname of the sessions user
-email      | Email of the sessions user
-locale     | Locale of the sessions user
-image_url  | Url to the profile image of the sessions user
-role       | Role of the sessions user (`admin`, `department_manager` or `employee`)
-auth_token | Auth token for users session, use this for further authorization on endpoints
-company_id | ID of the company, the user belongs to. Empty if the user does't belong to a company, yet.
+firstname                                           | Firstname of the sessions user
+lastname                                            | Lastname of the sessions user
+email                                               | Email of the sessions user
+locale                                              | Locale of the sessions user
+image_url                                           | Url to the profile image of the sessions user
+role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
+auth_token                                          | Auth token for users session, use this for further authorization on endpoints
+company_id                                          | ID of the company, the user belongs to. Empty if the user does't belong to a company, yet.
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)

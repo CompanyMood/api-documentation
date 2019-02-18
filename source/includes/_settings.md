@@ -2,7 +2,6 @@
 
 ## Retrieve the current user settings
 
-
 ```http
 GET /settings HTTP/1.1
 Host: api.company-mood.com
@@ -18,7 +17,7 @@ Content-Type: application/json
 
 {
   "data": {
-    "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+    "id": "70d17931-a3f0-4aa3-b432-c46f4b763d4f",
     "type": "settings",
     "attributes": {
       "mood_creation_notification_email_active": true,
@@ -34,9 +33,15 @@ Content-Type: application/json
 
 ### Response Attributes
 
-Parameter                           | Description
-------------------------------------|------------
-id                                  | id of the company
+Parameter                                           | Description
+----------------------------------------------------|--------------
+id                                                  | Current user ID
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+locale                                              | Locale of the current user
 
 
 ## Update current user settings
@@ -70,6 +75,7 @@ Content-Type: application/json
 
 {
   "data": {
+    "id": "70d17931-a3f0-4aa3-b432-c46f4b763d4f",
     "type": "settings",
     "attributes": {
       "mood_creation_notification_email_active": false,
@@ -85,10 +91,22 @@ Content-Type: application/json
 
 ### PUT Attributes
 
-Parameter                           | Description
-------------------------------------|------------
+Parameter                                           | Description
+----------------------------------------------------|------------
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+locale                                              | Locale of the current user
 
 ### Response Attributes
 
-Parameter                           | Description
-------------------------------------|------------
+Parameter                                           | Description
+----------------------------------------------------|------------
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+locale                                              | Locale of the current user
