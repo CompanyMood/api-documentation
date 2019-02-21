@@ -17,9 +17,9 @@ includes:
   - departments
   - event_pins
   - moods
-  - settings
   - tasks
   - terminal_spots
+  - settings
   - suggestions
   - passwords
   - public_announcements
