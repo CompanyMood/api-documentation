@@ -17,7 +17,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "content": "Free coffee plz!",
       "feeling": "happy",
       "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-      "not_anonymous": false
+      "not_anonymous": false,
+      "terminal_spot_id": "7842e27e-a6dc-4cb7-9818-42a507410b1d"
     }
   }
 }
@@ -36,6 +37,7 @@ Content-Type: application/json
       "feeling": "happy",
       "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
       "not_anonymous": false,
+      "terminal_spot_id": "7842e27e-a6dc-4cb7-9818-42a507410b1d",
       "created_at": "2018-06-25T11:18:42.517Z"
   }
 }
@@ -56,6 +58,7 @@ content          | required | The suggestion content.
 feeling          | required | Feeling of the suggestion can be ("sad", "unhappy", "ok", "satisfied", "happy").
 custom_tag_id    | required | ID of the custom tag for the suggestion.
 not_anonymous    | optional | Create not anonymous suggestion. True or false. `false` by default if not given. Always `true` if company is setup to not allow anonymous suggestions.
+terminal_spot_id | optional | ID of the terminal spot for the suggestion.
 
 ### Response Attributes
 
@@ -65,4 +68,5 @@ content            | The suggestion content
 feeling            | Feeling of the suggestion can be ("sad", "unhappy", "ok", "satisfied", "happy")
 custom_tag_id      | ID of the custom tag for the suggestion
 not_anonymous      | Boolean value. Displays if suggestion is anonymous or not.
+terminal_spot_id   | ID of the terminal spot for the suggestion.
 created_at         | Date of the suggestion creation (in ISO8601)
