@@ -385,21 +385,22 @@ Content-Type: application/json
     "id": "company-custom-tags",
     "type": "widgets",
     "attributes": {
-      "total_moods_count": 3,
+      "total_moods_count": 2,
+      "total_reasonings_count": 3,
       "custom_tag_details": [
         {
           "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
-          "moods_count": 2,
+          "reasonings_count": 2,
           "feeling_details": [
-            { "name": "unhappy", "percent": 50.0, "moods_count": 1 },
-            { "name": "sad", "percent": 50.0, "moods_count": 1 }
+            { "name": "unhappy", "percent": 50.0, "reasonings_count": 1 },
+            { "name": "sad", "percent": 50.0, "reasonings_count": 1 }
           ]
         },
         {
           "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-          "moods_count": 1,
+          "reasonings_count": 1,
           "feeling_details": [
-            { "name": "ok", "percent": 100.0, "moods_count": 1 },
+            { "name": "ok", "percent": 100.0, "reasonings_count": 1 },
           ]
         }
       ]
@@ -415,16 +416,17 @@ The `custom_tag_details` attribute will be an empty Array if no custom tag has a
 
 ### Response Attributes
 
-Parameter                                    | Description
----------------------------------------------|--------------
-total_moods_count                            | Total amount of moods in current tracking period for current user company.
-custom_tag_details                           | An Array of objects with mood details for each custom tag.
-custom_tag_details[custom_tag_id]            | ID of the custom tag.
-custom_tag_details[moods_count]              | Amount of given moods for the custom tag.
-custom_tag_details[feeling_details]          | An Array of objects with details for each feeling where moods exist.
-custom_tag_details[feeling_details][name]    | The identifier of the feeling.
-custom_tag_details[feeling_details][percent] | Percentage of total given moods for the current custom tag.
-custom_tag_details[feeling_details][count]   | Amount of moods given for the current feeling and custom tag.
+Parameter                                               | Description
+--------------------------------------------------------|--------------
+total_moods_count                                       | Total amount of moods in current tracking period for current user company.
+total_reasonings_count                                  | Total amount of reasonings in current tracking period for current user company.
+custom_tag_details                                      | An Array of objects with reasoning details for each custom tag.
+custom_tag_details[custom_tag_id]                       | ID of the custom tag.
+custom_tag_details[reasonings_count]                    | Amount of given reasonings for the custom tag.
+custom_tag_details[feeling_details]                     | An Array of objects with details for each feeling where moods exist.
+custom_tag_details[feeling_details][name]               | The identifier of the feeling.
+custom_tag_details[feeling_details][percent]            | Percentage of total given moods for the current custom tag.
+custom_tag_details[feeling_details][reasonings_count]   | Amount of reasonings given for the current feeling and custom tag.
 
 ## Department custom tags
 
@@ -446,22 +448,23 @@ Content-Type: application/json
     "id": "department-custom-tags",
     "type": "widgets",
     "attributes": {
-      "total_moods_count": 10,
+      "total_moods_count": 5,
+      "total_reasonings_count": 10,
       "custom_tag_details": [
         {
           "custom_tag_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-          "moods_count": 6,
+          "reasonings_count": 6,
           "feeling_details": [
-            { "name": "ok", "percent": 50.0, "count": 3 },
-            { "name": "happy", "percent": 50.0, "count": 3 }
+            { "name": "ok", "percent": 50.0, "reasonings_count": 3 },
+            { "name": "happy", "percent": 50.0, "reasonings_count": 3 }
           ]
         },
         {
           "custom_tag_id": "7efea556-461e-8f1c-8a9b-f7559f2aedb",
-          "moods_count": 4,
+          "reasonings_count": 4,
           "feeling_details": [
-            { "name": "sad", "percent": 50.0, "count": 2 },
-            { "name": "unhappy", "percent": 50.0, "count": 2 }
+            { "name": "sad", "percent": 50.0, "reasonings_count": 2 },
+            { "name": "unhappy", "percent": 50.0, "reasonings_count": 2 }
           ]
         }
       ]
@@ -476,16 +479,17 @@ feelings where no moods has been given in the current tracking period.
 
 ### Response Attributes
 
-Parameter                                    | Description
----------------------------------------------|--------------
-total_moods_count                            | Total amount of moods in current tracking period for current user department.
-custom_tag_details                           | An Array of objects with mood details for each custom tag.
-custom_tag_details[custom_tag_id]            | ID of the custom tag.
-custom_tag_details[moods_count]              | Amount of given moods for the custom tag.
-custom_tag_details[feeling_details]          | An Array of objects with details for each feeling where moods exist.
-custom_tag_details[feeling_details][name]    | The identifier of the feeling.
-custom_tag_details[feeling_details][percent] | Percentage of total given moods for the current custom tag.
-custom_tag_details[feeling_details][count]   | Amount of moods given for the current feeling and custom tag.
+Parameter                                             | Description
+------------------------------------------------------|--------------
+total_moods_count                                     | Total amount of moods in current tracking period for current user department.
+total_reasonings_count                                | Total amount of reasonings in current tracking period for current user department.
+custom_tag_details                                    | An Array of objects with mood details for each custom tag.
+custom_tag_details[custom_tag_id]                     | ID of the custom tag.
+custom_tag_details[reasonings_count]                  | Amount of given reasonings for the custom tag.
+custom_tag_details[feeling_details]                   | An Array of objects with details for each feeling where reasonings exist.
+custom_tag_details[feeling_details][name]             | The identifier of the feeling.
+custom_tag_details[feeling_details][percent]          | Percentage of total given reasonings for the current custom tag.
+custom_tag_details[feeling_details][reasonings_count] | Amount of reasonings given for the current feeling and custom tag.
 
 ## Rankings
 
