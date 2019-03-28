@@ -2,6 +2,8 @@
 
 ## Get all tasks for current user
 
+Get all tasks for the current user which are not archived.
+
 ```http
 GET /tasks HTTP/1.1
 Host: api.company-mood.com
