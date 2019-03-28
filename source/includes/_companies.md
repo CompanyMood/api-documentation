@@ -37,7 +37,9 @@ Content-Type: application/json
          "mood_creation_reminder_on": 5,
          "mood_creation_reminder_on_hours": 17,
          "mood_creation_reminder_on_weeks": 2,
-         "allow_anonymous_suggestions": true
+         "allow_anonymous_suggestions": true,
+         "current_tracking_period_start": "2015-03-01"
+         "current_tracking_period_end": "2015-03-31"
        }
      }
   ]
@@ -64,6 +66,8 @@ mood_creation_reminder_on           | Weekday for mood creation reminder notific
 mood_creation_reminder_on_hours     | Hour for the mood creation reminder notification
 mood_creation_reminder_on_weeks     | Week for the mood creation reminder notification
 allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
+current_tracking_period_start       | Date when the current tracking period starts
+current_tracking_period_end         | Date when the current tracking period ends
 
 
 ## Update a company
@@ -122,7 +126,10 @@ Content-Type: application/json
          "mood_creation_reminder_on": 5,
          "mood_creation_reminder_on_hours": 17,
          "mood_creation_reminder_on_weeks": 2,
-         "allow_anonymous_suggestions": false
+         "allow_anonymous_suggestions": false,
+         "current_tracking_period_start": "2015-03-01"
+         "current_tracking_period_end": "2015-03-31"
+
        }
      }
   ]
@@ -165,3 +172,5 @@ mood_creation_reminder_on           | Weekday for mood creation reminder notific
 mood_creation_reminder_on_hours     | Hour for the mood creation reminder notification
 mood_creation_reminder_on_weeks     | Week for the mood creation reminder notification
 allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
+current_tracking_period_start       | Date when the current tracking period starts
+current_tracking_period_end         | Date when the current tracking period ends
