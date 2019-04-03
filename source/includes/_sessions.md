@@ -50,7 +50,7 @@ Content-Type: application/json
 
 You can create a new session and get the `auth_token` and other important informations about the just logged in user by sending the `email` and `password` to this endpoint.
 
-The returned role can be "admin", "supervisor", "employee" or "department_manager".
+The returned role can be "admin", "employee" or "department_manager".
 
 ### POST Attributes
 
