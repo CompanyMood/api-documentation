@@ -3,7 +3,7 @@
 ## Retrieve the terminal spots of the users company
 Returns with an 401 if the user does not belong to a company
 
-You'll need the terminal_spot_id and its accorind department_id if you
+You'll need the terminal_spot_id and its associated department_id if you
 want to track a terminal mood. More under /moods
 
 ### Note
@@ -30,7 +30,10 @@ Content-Type: application/json
        "name": "Production exit terminal",
        "description": "This terminal gets placed at the facility A.1-5s exits",
        "soft_cap_rate": 10,
-       "hard_cap_rate": 25
+       "hard_cap_rate": 25,
+       "mood_barometer_active": true,
+       "suggestions_active": true,
+       "surveys_active": true
      },
      "relationships": {
        "terminal_spot_department_settings": {
@@ -73,13 +76,16 @@ Content-Type: application/json
 
 #### terminal_spot
 
-Paramteter    | Description
---------------|------------
-id            | id of the terminal spot
-name          | name of the terminal spot
-description   | description of the terminal spot
-soft_cap_rate | Soft cap rate defines at what rate (not amount) of overtracked moods, a warning should get shown fir a terminals department
-hard_cap_rate | Hard cap rate defines at what rate (not amount) of overtracked moods, a terminal should not allow the tracking for a terminals department
+Paramteter            | Description
+----------------------|------------
+id                    | id of the terminal spot
+name                  | name of the terminal spot
+description           | description of the terminal spot
+soft_cap_rate         | Soft cap rate defines at what rate (not amount) of overtracked moods, a warning should get shown fir a terminals department
+hard_cap_rate         | Hard cap rate defines at what rate (not amount) of overtracked moods, a terminal should not allow the tracking for a terminals department
+mood_barometer_active | A boolean value which indicates if the mood review feature is active for this terminal spot.
+suggestions_active    | A boolean value which indicates if the suggestion box feature is activated for this terminal spot.
+surveys_active        | A boolean value which indicates if the survey feature is activated for this terminal spot.
 
 #### side loaded department
 
