@@ -127,7 +127,7 @@ Content-Type: application/json
          "mood_creation_reminder_on_hours": 17,
          "mood_creation_reminder_on_weeks": 2,
          "allow_anonymous_suggestions": false,
-         "current_tracking_period_start": "2015-03-01"
+         "current_tracking_period_start": "2015-03-01",
          "current_tracking_period_end": "2015-03-31"
 
        }
