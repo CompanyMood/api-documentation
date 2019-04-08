@@ -70,7 +70,7 @@ image_url                                           | Url to the profile image o
 role                                                | Role of the sessions user (`admin`, `supervisor`, `department_manager` or `employee`).
 auth_token                                          | Auth token for users session, use this for further authorization on endpoints.
 company_id                                          | ID of the company, the user belongs to. Empty if the user does't belong to a company, yet.
-department_id                                       | ID of the department, the user belongts to. `null` if the user doesn't belong to a department.
+department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
 mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
 mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
