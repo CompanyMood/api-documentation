@@ -39,7 +39,8 @@ Content-Type: application/json
          "mood_creation_reminder_on_weeks": 2,
          "allow_anonymous_suggestions": true,
          "current_tracking_period_start": "2015-03-01",
-         "current_tracking_period_end": "2015-03-31"
+         "current_tracking_period_end": "2015-03-31",
+         "logo_url": "https://cdn.company-mood.com/companies/logos/f8fddbb8ad00bede48a5df91248ca067537a2b7a/main.png"
        }
      }
   ]
@@ -68,6 +69,7 @@ mood_creation_reminder_on_weeks     | Week for the mood creation reminder notifi
 allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
 current_tracking_period_start       | Date when the current tracking period starts
 current_tracking_period_end         | Date when the current tracking period ends
+logo_url                            | The URL of the company logo. If no custom logo has been uploaded the returned value will be `null`
 
 
 ## Update a company
@@ -128,8 +130,8 @@ Content-Type: application/json
          "mood_creation_reminder_on_weeks": 2,
          "allow_anonymous_suggestions": false,
          "current_tracking_period_start": "2015-03-01",
-         "current_tracking_period_end": "2015-03-31"
-
+         "current_tracking_period_end": "2015-03-31",
+         "logo_url": "https://cdn.company-mood.com/companies/logos/f8fddbb8ad00bede48a5df91248ca067537a2b7a/main.png"
        }
      }
   ]
@@ -174,3 +176,4 @@ mood_creation_reminder_on_weeks     | Week for the mood creation reminder notifi
 allow_anonymous_suggestions         | Is it allowed to create anonymous suggestions for this company? If false, all suggestions will be created with `not_anonymous` set to true.
 current_tracking_period_start       | Date when the current tracking period starts
 current_tracking_period_end         | Date when the current tracking period ends
+logo_url                            | The URL of the company logo. If no custom logo has been uploaded the returned value will be `null`
