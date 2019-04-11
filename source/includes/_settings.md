@@ -25,7 +25,7 @@ Content-Type: application/json
       "mood_creation_notification_push_notification_active": true,
       "mood_creation_reminder_push_notification_active": true,
       "weekly_status_notification_active": true,
-      "locale": true
+      "locale": 'de'
     }
   }
 }
@@ -41,7 +41,7 @@ mood_creation_reminder_email_active                 | Will the user receive remi
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
-locale                                              | Locale of the current user
+locale                                              | A string with the locale of the current user
 
 
 ## Update current user settings
@@ -63,7 +63,7 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "mood_creation_notification_push_notification_active": false,
       "mood_creation_reminder_push_notification_active": false,
       "weekly_status_notification_active": false,
-      "locale": false
+      "locale": 'en'
     }
   }
 }
@@ -83,7 +83,7 @@ Content-Type: application/json
       "mood_creation_notification_push_notification_active": false,
       "mood_creation_reminder_push_notification_active": false,
       "weekly_status_notification_active": false,
-      "locale": false
+      "locale": 'en'
     }
   }
 }
@@ -98,7 +98,7 @@ mood_creation_reminder_email_active                 | Will the user receive remi
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
-locale                                              | Locale of the current user
+locale                                              | A string with the new locale for the current user
 
 ### Response Attributes
 
@@ -109,4 +109,4 @@ mood_creation_reminder_email_active                 | Will the user receive remi
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
-locale                                              | Locale of the current user
+locale                                              | A string with the locale of the current user
