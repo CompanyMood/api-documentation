@@ -25,7 +25,7 @@ Content-Type: application/json
       "mood_creation_notification_push_notification_active": true,
       "mood_creation_reminder_push_notification_active": true,
       "weekly_status_notification_active": true,
-      "locale": 'de'
+      "locale": "de"
     }
   }
 }
@@ -63,7 +63,7 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "mood_creation_notification_push_notification_active": false,
       "mood_creation_reminder_push_notification_active": false,
       "weekly_status_notification_active": false,
-      "locale": 'en'
+      "locale": "en"
     }
   }
 }
@@ -83,7 +83,7 @@ Content-Type: application/json
       "mood_creation_notification_push_notification_active": false,
       "mood_creation_reminder_push_notification_active": false,
       "weekly_status_notification_active": false,
-      "locale": 'en'
+      "locale": "en"
     }
   }
 }
