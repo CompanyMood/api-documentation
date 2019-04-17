@@ -46,7 +46,7 @@ Accept: application/vnd.company-mood-v2+json
 ```
 
 You need to specify the API version you want use via the `Accept`
-header.
+header. (current version is v2)
 
 Format
 
