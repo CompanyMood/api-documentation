@@ -129,15 +129,15 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns average mood information for the last four tracking periods
+This endpoint returns average mood information for the last four weeks
 of the current users company.
 
 ### Response Attributes
 
 Parameter           | Description
 --------------------|--------------
-from                | Start date of the tracking period
-to                  | End date of the tracking period
+from                | Start date of represented week
+to                  | End date of represented week
 participation_ratio | Employee participation ratio in percent
 happiness_score     | Average happiness score for the tracking period
 
@@ -192,15 +192,15 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns average mood information for the last four tracking periods
+This endpoint returns average mood information for the last four weeks
 of the current users department.
 
 ### Response Attributes
 
 Parameter           | Description
 --------------------|--------------
-from                | Start date of the tracking period
-to                  | End date of the tracking period
+from                | Start date of represented week
+to                  | End date of represented week
 participation_ratio | Employee participation ratio in percent
 happiness_score     | Average happiness score for the tracking period
 
