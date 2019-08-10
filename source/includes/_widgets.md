@@ -114,13 +114,13 @@ Content-Type: application/json
         {
           "from": "2018-11-12",
           "to": "2018-11-18",
-          "participation_ratio": 40,
-          "happiness_score": 19
+          "participation_ratio": null,
+          "happiness_score": null
         },
         {
           "from": "2018-11-19",
           "to": "2018-11-25",
-          "participation_ratio": 38,
+          "participation_ratio": 0,
           "happiness_score": 35
         }
       ]
@@ -129,7 +129,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns average mood information for the last four weeks
+This endpoint returns average mood details for the last four periods
 of the current users company.
 
 ### Response Attributes
@@ -138,8 +138,8 @@ Parameter           | Description
 --------------------|--------------
 from                | Start date of represented week
 to                  | End date of represented week
-participation_ratio | Employee participation ratio in percent
-happiness_score     | Average happiness score for the tracking period
+participation_ratio | Employee participation ratio in percent. Null if anonymity settings do not allow to show data.
+happiness_score     | Average happiness score for the tracking period.Null if anonymity settings do not allow to show data.
 
 ## Department Average Mood
 
