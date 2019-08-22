@@ -34,7 +34,7 @@ Content-Type: application/json
       "mood_review_snoozed_until": "2019-06-14T11:15:00.000Z",
       "current_tracking_time": "2019-06-20T11:00:00.000Z",
       "weekly_status_notification_active": true,
-      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83",
+      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83"
     }
   }
 }
