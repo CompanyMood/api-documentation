@@ -44,7 +44,7 @@ Content-Type: application/json
       "mood_creation_reminder_push_notification_active": true,
       "mood_review_snoozed_until": "2019-06-14T11:15:00.000Z",
       "weekly_status_notification_active": true,
-      "current_tracking_time": "2019-06-20T11:00:00.000Z",
+      "current_tracking_time": "2019-06-20T11:00:00.000Z"
     }
   }
 }
