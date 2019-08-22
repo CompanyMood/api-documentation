@@ -23,6 +23,7 @@ includes:
   - suggestions
   - passwords
   - public_announcements
+  - users
   - widgets
 
 search: true
