@@ -31,6 +31,7 @@ Content-Type: application/json
     "attributes": {
       "firstname": "John",
       "lastname": "Doe",
+      "gender": "male",
       "email": "j.doe1@example.com",
       "locale": "de",
       "image_url": "https://gravatar.com/avatar/829afce351884fcde132544bf9686221",
@@ -68,6 +69,7 @@ Parameter | Description
 firstname                                           | Firstname of the sessions user
 lastname                                            | Lastname of the sessions user
 email                                               | Email of the sessions user
+gender                                              | The gender of the sessions user (`male`, `female`, `divers`)
 locale                                              | Locale of the sessions user
 image_url                                           | Url to the profile image of the sessions user
 role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
