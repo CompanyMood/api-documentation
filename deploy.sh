@@ -181,7 +181,8 @@ commit+push() {
     disable_expanded_output
     remote_repo="https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/${REPOSITORY}.git"
     #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
-    git push "${remote_repo}" $deploy_branch --quiet 
+    git remote add ghpages $remote_repo
+    git push ghpages $deploy_branch --quiet
     enable_expanded_output
   else
     disable_expanded_output
