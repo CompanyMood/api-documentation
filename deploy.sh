@@ -179,7 +179,7 @@ commit+push() {
 
   if [ $github_action = true ]; then
     disable_expanded_output
-    remote_repo="https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+    remote_repo="https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/CompanyMood/api-documentation.git"
     #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
     git remote add ghpages $remote_repo
     git push ghpages $deploy_branch --quiet
