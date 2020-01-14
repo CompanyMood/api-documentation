@@ -63,6 +63,9 @@ parse_args() {
     elif [[ $1 = "-n" || $1 = "--no-hash" ]]; then
       GIT_DEPLOY_APPEND_HASH=false
       shift
+    elif [[ $1 = "-c" || $1 = "--commit-only" ]]; then
+      commit_only=true
+      shift
     else
       break
     fi
@@ -172,12 +175,17 @@ incremental_deploy() {
 
 commit+push() {
   set_user_id
-  git --work-tree "$deploy_directory" commit -m "$commit_message"
 
-  disable_expanded_output
-  #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
-  git push --quiet $repo $deploy_branch
-  enable_expanded_output
+  if [ $commit_only = true ]; then
+    git --work-tree "$deploy_directory" commit -m "$commit_message"
+  else
+    git --work-tree "$deploy_directory" commit -m "$commit_message"
+
+    disable_expanded_output
+    #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
+    git push --quiet $repo $deploy_branch
+    enable_expanded_output
+  fi
 }
 
 #echo expanded commands as they are executed (for debugging)
