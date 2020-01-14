@@ -177,7 +177,7 @@ commit+push() {
   set_user_id
 
   if [ $commit_only = true ]; then
-    git --work-tree "$deploy_directory" commit -m "$commit_message"
+    git commit -m "$commit_message"
   else
     git --work-tree "$deploy_directory" commit -m "$commit_message"
 
