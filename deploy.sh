@@ -63,7 +63,7 @@ parse_args() {
     elif [[ $1 = "-n" || $1 = "--no-hash" ]]; then
       GIT_DEPLOY_APPEND_HASH=false
       shift
-    elif [[ $1 = "-c" || $1 = "--commit-only" ]]; then
+    elif [[ $1 = "-o" || $1 = "--commit-only" ]]; then
       commit_only=true
       shift
     else
