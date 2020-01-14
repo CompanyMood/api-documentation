@@ -63,8 +63,8 @@ parse_args() {
     elif [[ $1 = "-n" || $1 = "--no-hash" ]]; then
       GIT_DEPLOY_APPEND_HASH=false
       shift
-    elif [[ $1 = "-o" || $1 = "--commit-only" ]]; then
-      commit_only=true
+    elif [[ $1 = "-g" || $1 = "--github-action" ]]; then
+      github_action=true
       shift
     else
       break
@@ -175,12 +175,15 @@ incremental_deploy() {
 
 commit+push() {
   set_user_id
+  git --work-tree "$deploy_directory" commit -m "$commit_message"
 
-  if [ $commit_only = true ]; then
-    git commit -m "$commit_message"
+  if [ $github_action = true ]; then
+    disable_expanded_output
+    remote_repo="https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+    #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
+    git push --quiet "${remote_repo}" $deploy_branch
+    enable_expanded_output
   else
-    git --work-tree "$deploy_directory" commit -m "$commit_message"
-
     disable_expanded_output
     #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
     git push --quiet $repo $deploy_branch
