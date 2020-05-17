@@ -1717,12 +1717,50 @@ and <code class="prettyprint">deparment_id</code>parameters.</p>
 
 <p>You can only delete the mood for last calendar week.</p>
 
-          <h1 id="tasks">Tasks</h1>
+          <h1 id="password-reset">Password reset</h1>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/password-resets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
 
-<h2 id="get-all-tasks-for-current-user">Get all tasks for current user</h2>
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password-resets"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid@example.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">202</span> <span class="ne">ACCEPTED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 
-<p>Get all tasks for the current user which are not archived.</p>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/tasks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<p>To start a reset password process you have to send a POST request with the user email
+address to this endpoint. If the request was successful, you&rsquo;ll receive an email
+with a password reset link.</p>
+
+<p>This endpoint does not require authentication with auth_token.</p>
+
+<h2 id="post-attributes">POST attributes</h2>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>User email for whom the process will be started</td>
+</tr>
+</tbody></table>
+
+          <h1 id="public-announcements">Public Announcements</h1>
+
+<h2 id="get-all-public-announcements">Get all public announcements</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/public_announcements</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
@@ -1734,32 +1772,352 @@ and <code class="prettyprint">deparment_id</code>parameters.</p>
 
 <span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jovanni Williamson"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome public announcement"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-25T11:18:42.517Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sammy Nonetti"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We created a survey for our upcoming team event. Please participate."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-25T19:12:32.212Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>Get all public announcements which are accessible by the current user.</p>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the public announcement.</td>
+</tr>
+<tr>
+<td>creator_name</td>
+<td>Name of announcement creator.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Content of the public announcement.</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>ID of the associated Task.</td>
+</tr>
+<tr>
+<td>own_reaction</td>
+<td>The reaction of the current user. Can be &ldquo;up&rdquo;, &ldquo;down&rdquo; or null.</td>
+</tr>
+<tr>
+<td>reaction_counts</td>
+<td>An Object with details for &ldquo;up&rdquo; and &ldquo;down&rdquo; reactions.</td>
+</tr>
+<tr>
+<td>reaction_counts[up]</td>
+<td>Amount of up votes.</td>
+</tr>
+<tr>
+<td>reaction_counts[down]</td>
+<td>Amount of down votes.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date of the public announcement creation (in ISO8601)</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-announcement-reaction">Create announcement reaction</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/public_announcements/f7559f2a-8f1c-461e-8a9b-7efea5564edb/reactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"down"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jovanni Williamson"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome public announcement"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"down"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-25T11:18:42.517Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>React on public announcements with an &ldquo;up&rdquo; or &ldquo;down&rdquo; vote.</p>
+
+<h3 id="post-attributes">POST attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reaction</td>
+<td>The reaction key. Can be &ldquo;up&rdquo; or &ldquo;down&rdquo;.</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the public announcement.</td>
+</tr>
+<tr>
+<td>creator_name</td>
+<td>Name of announcement creator.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Content of the public announcement.</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>ID of the associated Task.</td>
+</tr>
+<tr>
+<td>own_reaction</td>
+<td>The reaction of the current user. Can be &ldquo;up&rdquo;, &ldquo;down&rdquo; or null.</td>
+</tr>
+<tr>
+<td>reaction_counts</td>
+<td>An Object with details for &ldquo;up&rdquo; and &ldquo;down&rdquo; reactions.</td>
+</tr>
+<tr>
+<td>reaction_counts[up]</td>
+<td>Amount of up votes.</td>
+</tr>
+<tr>
+<td>reaction_counts[down]</td>
+<td>Amount of down votes.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date of the public announcement creation (in ISO8601)</td>
+</tr>
+</tbody></table>
+
+          <h1 id="reasonings-comments-from-all-sources-like-moods-reasonings-suggestions">Reasonings (comments from all sources like moods, reasonings, suggestions)</h1>
+
+<h2 id="retrieve-reasonings-for-given-meta-filters">Retrieve reasonings for given meta filters</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/reasonings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reasonings_feeling"</span><span class="p">:</span><span class="w"> </span><span class="s2">"happy"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"with_reason_only"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reasonings_feeling"</span><span class="p">:</span><span class="w"> </span><span class="s2">"happy"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reasonings_custom_tag_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"with_reason_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
      </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1763109913022098"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reasoning-1583247555"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Implement CompanyMood"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Implement continuous Mood monitoring"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"implemented"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-11"</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teamevent"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big office party"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"idea"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-15"</span><span class="w">
+         </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"Anonym"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"department_link"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"department_string"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"discussion_path"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Topics"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"custom_tags"</span><span class="p">:[</span><span class="s2">"Health"</span><span class="p">],</span><span class="w">
+         </span><span class="nt">"custom_tag_label"</span><span class="p">:</span><span class="s2">"Health"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"custom_tag_id"</span><span class="p">:</span><span class="s2">"5c8d26ee-3a0e-3c55-8281-7fu67ed069c5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"feeling"</span><span class="p">:</span><span class="s2">"Happy"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"feeling_key"</span><span class="p">:</span><span class="s2">"happy"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"rating"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2020-05-03T15:59:15.922+01:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"created_at_as_integer"</span><span class="p">:</span><span class="mi">1583247555</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"cweek"</span><span class="p">:</span><span class="s2">"KW 21/20"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"period"</span><span class="p">:</span><span class="s2">"KW 21/20"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"Finally great again... Cured that arrow to the knee! :)"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"answered"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"answers_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"answers"</span><span class="p">:[],</span><span class="w">
+         </span><span class="nt">"from_terminal"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"chat_allowed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"additional_export_information"</span><span class="p">:</span><span class="kc">null</span><span class="w">
        </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<p>Request the reasonings for the given meta filters.</p>
+
+<h3 id="get-meta-attributes">GET META Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>origin_type</td>
+<td>required</td>
+<td>Class of the reasoning origin. [Company, Department]</td>
+</tr>
+<tr>
+<td>origin_id</td>
+<td>required</td>
+<td>UUID of the requested origin.</td>
+</tr>
+<tr>
+<td>from</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>reasonings_feeling</td>
+<td>optional</td>
+<td>Filter reasonings for a specific feeling key [sad, unhappy, ok, satisfied, happy, positive, negative]</td>
+</tr>
+<tr>
+<td>reasonings_custom_tag_id</td>
+<td>optional</td>
+<td>Filter for a specific custom_tag</td>
+</tr>
+<tr>
+<td>with_reason_only</td>
+<td>optional</td>
+<td>Return only reasonings with an existing comment</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-meta-attributes">Response META Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>origin_type</td>
+<td>required</td>
+<td>Class of the reasoning origin. [Company, Department]</td>
+</tr>
+<tr>
+<td>origin_id</td>
+<td>required</td>
+<td>UUID of the requested origin.</td>
+</tr>
+<tr>
+<td>from</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>reasonings_feeling</td>
+<td>optional</td>
+<td>Filter reasonings for a specific feeling key [sad, unhappy, ok, satisfied, happy, positive, negative]</td>
+</tr>
+<tr>
+<td>reasonings_custom_tag_id</td>
+<td>optional</td>
+<td>Filter for a specific custom_tag</td>
+</tr>
+<tr>
+<td>with_reason_only</td>
+<td>optional</td>
+<td>Return only reasonings with an existing comment</td>
+</tr>
+</tbody></table>
+
 <h3 id="response-attributes">Response Attributes</h3>
 
 <table><thead>
@@ -1769,188 +2127,96 @@ and <code class="prettyprint">deparment_id</code>parameters.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>id of the task</td>
+<td>username</td>
+<td>Authors name (if transparent) otherwise &ldquo;Anonym&rdquo;</td>
 </tr>
 <tr>
-<td>name</td>
-<td>Name of the task</td>
+<td>email</td>
+<td>Authors email (if transparent) otherwise null</td>
 </tr>
 <tr>
-<td>description</td>
-<td>Description of the task</td>
+<td>department_link</td>
+<td>Link to the department, if anonymity rules allow it</td>
 </tr>
 <tr>
-<td>percent</td>
-<td>Progress of the task in percent</td>
+<td>department_string</td>
+<td>Department name, if anonymity rules allow it</td>
 </tr>
 <tr>
-<td>state</td>
-<td>State of the task</td>
+<td>discussion_path</td>
+<td>Path to the reasonings discussion</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Translated type label</td>
+</tr>
+<tr>
+<td>custom_tags</td>
+<td>Array of translated custom tag labels</td>
+</tr>
+<tr>
+<td>custom_tag_label</td>
+<td>Translated custom tag label</td>
+</tr>
+<tr>
+<td>custom_tag_id</td>
+<td>Custom tag id</td>
+</tr>
+<tr>
+<td>feeling</td>
+<td>Translated feeling label</td>
+</tr>
+<tr>
+<td>feeling_key</td>
+<td>Feeling key [sad, unhappy, ok, satisfied, happy, positive, negative]</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>Rating of the feeling [0, 25, 50, 75, 100]</td>
 </tr>
 <tr>
 <td>created_at</td>
-<td>create at date of task</td>
-</tr>
-</tbody></table>
-
-          <h1 id="terminalspots">TerminalSpots</h1>
-
-<h2 id="retrieve-the-terminal-spots-of-the-users-company">Retrieve the terminal spots of the users company</h2>
-
-<p>Returns with an 401 if the user does not belong to a company</p>
-
-<p>You&rsquo;ll need the terminal_spot_id and its associated department_id if you
-want to track a terminal mood. More under /moods</p>
-
-<h3 id="note">Note</h3>
-
-<p>In this endpoint you&rsquo;ll get all dependend <code class="prettyprint">departments</code> and <code class="prettyprint">terminal_spot_department_settings</code> as sideloaded relationships and includes.</p>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/terminal_spots</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
-<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
-</code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Production exit terminal"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This terminal gets placed at the facility A.1-5s exits"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"soft_cap_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"hard_cap_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"mood_barometer_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"suggestions_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"surveys_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"terminal_spot_department_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cc30da9-ffc7-40ff-9c88-ef03aa692b98"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot_department_settings"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-         </span><span class="p">]</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}],</span><span class="w">
-   </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cc30da9-ffc7-40ff-9c88-ef03aa692b98"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot_department_settings"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"breadcrumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German HQ &gt; Development &gt; Design"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="response-attributes">Response Attributes</h3>
-
-<h4 id="terminal_spot">terminal_spot</h4>
-
-<table><thead>
-<tr>
-<th>Paramteter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>id of the terminal spot</td>
+<td>Timestamp for the creation (in ISO8601)</td>
 </tr>
 <tr>
-<td>name</td>
-<td>name of the terminal spot</td>
+<td>created_at_as_integer</td>
+<td>Integer representation of the created_at timestamp</td>
 </tr>
 <tr>
-<td>description</td>
-<td>description of the terminal spot</td>
+<td>cweek</td>
+<td>Period string</td>
 </tr>
 <tr>
-<td>soft_cap_rate</td>
-<td>Soft cap rate defines at what rate (not amount) of overtracked moods, a warning should get shown fir a terminals department</td>
+<td>period</td>
+<td>Period string</td>
 </tr>
 <tr>
-<td>hard_cap_rate</td>
-<td>Hard cap rate defines at what rate (not amount) of overtracked moods, a terminal should not allow the tracking for a terminals department</td>
+<td>comment</td>
+<td>Given comment for the reasoning - can be null</td>
 </tr>
 <tr>
-<td>mood_barometer_active</td>
-<td>A boolean value which indicates if the mood review feature is active for this terminal spot.</td>
+<td>answered</td>
+<td>Have this reasoning been answered? - Boolean</td>
 </tr>
 <tr>
-<td>suggestions_active</td>
-<td>A boolean value which indicates if the suggestion box feature is activated for this terminal spot.</td>
+<td>answers_count</td>
+<td>Count of given answers</td>
 </tr>
 <tr>
-<td>surveys_active</td>
-<td>A boolean value which indicates if the survey feature is activated for this terminal spot.</td>
-</tr>
-</tbody></table>
-
-<h4 id="side-loaded-department">side loaded department</h4>
-
-<table><thead>
-<tr>
-<th>Paramteter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>id of the terminal spot</td>
+<td>answers</td>
+<td>Answers as an array</td>
 </tr>
 <tr>
-<td>name</td>
-<td>name of the terminal spot</td>
+<td>from_terminal</td>
+<td>Specifies if the reasoning was created by an terminal</td>
 </tr>
 <tr>
-<td>breadcrumb</td>
-<td>All names in path to the department incl. it&rsquo;s own</td>
-</tr>
-</tbody></table>
-
-<h4 id="side-loaded-terminal_spot_department_settings">side loaded terminal_spot_department_settings</h4>
-
-<table><thead>
-<tr>
-<th>Paramteter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>id of the terminal spot</td>
+<td>chat_allowed</td>
+<td>Specifies if chat/discussion is allowed</td>
 </tr>
 <tr>
-<td>users_count</td>
-<td>how much users are supposed to track via this terminal_spot_department_setting</td>
-</tr>
-<tr>
-<td>department_id</td>
-<td>department id for this terminal_spot_department_setting (needed for tracking terminal mood)</td>
+<td>additional_export_information</td>
+<td>Additional export informations - if applied</td>
 </tr>
 </tbody></table>
 
@@ -2262,50 +2528,12 @@ a <code class="prettyprint">not_anonymous</code> parameter. If your company is s
 </tr>
 </tbody></table>
 
-          <h1 id="password-reset">Password reset</h1>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/password-resets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
-<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+          <h1 id="tasks">Tasks</h1>
 
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password-resets"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid@example.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">202</span> <span class="ne">ACCEPTED</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-</code></pre>
+<h2 id="get-all-tasks-for-current-user">Get all tasks for current user</h2>
 
-<p>To start a reset password process you have to send a POST request with the user email
-address to this endpoint. If the request was successful, you&rsquo;ll receive an email
-with a password reset link.</p>
-
-<p>This endpoint does not require authentication with auth_token.</p>
-
-<h2 id="post-attributes">POST attributes</h2>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>User email for whom the process will be started</td>
-</tr>
-</tbody></table>
-
-          <h1 id="public-announcements">Public Announcements</h1>
-
-<h2 id="get-all-public-announcements">Get all public announcements</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/public_announcements</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<p>Get all tasks for the current user which are not archived.</p>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/tasks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
@@ -2317,42 +2545,31 @@ with a password reset link.</p>
 
 <span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jovanni Williamson"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome public announcement"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-25T11:18:42.517Z"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sammy Nonetti"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We created a survey for our upcoming team event. Please participate."</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-25T19:12:32.212Z"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Implement CompanyMood"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Implement continuous Mood monitoring"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"implemented"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-11"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teamevent"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big office party"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"idea"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-15"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
-
-<p>Get all public announcements which are accessible by the current user.</p>
 
 <h3 id="response-attributes">Response Attributes</h3>
 
@@ -2364,98 +2581,105 @@ with a password reset link.</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>ID of the public announcement.</td>
+<td>id of the task</td>
 </tr>
 <tr>
-<td>creator_name</td>
-<td>Name of announcement creator.</td>
+<td>name</td>
+<td>Name of the task</td>
 </tr>
 <tr>
-<td>content</td>
-<td>Content of the public announcement.</td>
+<td>description</td>
+<td>Description of the task</td>
 </tr>
 <tr>
-<td>task_id</td>
-<td>ID of the associated Task.</td>
+<td>percent</td>
+<td>Progress of the task in percent</td>
 </tr>
 <tr>
-<td>own_reaction</td>
-<td>The reaction of the current user. Can be &ldquo;up&rdquo;, &ldquo;down&rdquo; or null.</td>
-</tr>
-<tr>
-<td>reaction_counts</td>
-<td>An Object with details for &ldquo;up&rdquo; and &ldquo;down&rdquo; reactions.</td>
-</tr>
-<tr>
-<td>reaction_counts[up]</td>
-<td>Amount of up votes.</td>
-</tr>
-<tr>
-<td>reaction_counts[down]</td>
-<td>Amount of down votes.</td>
+<td>state</td>
+<td>State of the task</td>
 </tr>
 <tr>
 <td>created_at</td>
-<td>Date of the public announcement creation (in ISO8601)</td>
+<td>create at date of task</td>
 </tr>
 </tbody></table>
 
-<h2 id="create-announcement-reaction">Create announcement reaction</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/public_announcements/f7559f2a-8f1c-461e-8a9b-7efea5564edb/reactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+          <h1 id="terminalspots">TerminalSpots</h1>
+
+<h2 id="retrieve-the-terminal-spots-of-the-users-company">Retrieve the terminal spots of the users company</h2>
+
+<p>Returns with an 401 if the user does not belong to a company</p>
+
+<p>You&rsquo;ll need the terminal_spot_id and its associated department_id if you
+want to track a terminal mood. More under /moods</p>
+
+<h3 id="note">Note</h3>
+
+<p>In this endpoint you&rsquo;ll get all dependend <code class="prettyprint">departments</code> and <code class="prettyprint">terminal_spot_department_settings</code> as sideloaded relationships and includes.</p>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/terminal_spots</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
 <span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"down"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-announcements"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Production exit terminal"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This terminal gets placed at the facility A.1-5s exits"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"soft_cap_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"hard_cap_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"mood_barometer_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"suggestions_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"surveys_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"terminal_spot_department_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cc30da9-ffc7-40ff-9c88-ef03aa692b98"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot_department_settings"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}],</span><span class="w">
+   </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cc30da9-ffc7-40ff-9c88-ef03aa692b98"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal_spot_department_settings"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"creator_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jovanni Williamson"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome public announcement"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"own_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"down"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"reaction_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-25T11:18:42.517Z"</span><span class="w">
+      </span><span class="nt">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea985df4-2c38-4c44-bda9-5bbe031f6755"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"breadcrumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German HQ &gt; Development &gt; Design"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>React on public announcements with an &ldquo;up&rdquo; or &ldquo;down&rdquo; vote.</p>
-
-<h3 id="post-attributes">POST attributes</h3>
-
-<table><thead>
-<tr>
-<th>Paramteter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>reaction</td>
-<td>The reaction key. Can be &ldquo;up&rdquo; or &ldquo;down&rdquo;.</td>
-</tr>
-</tbody></table>
-
 <h3 id="response-attributes">Response Attributes</h3>
+
+<h4 id="terminal_spot">terminal_spot</h4>
 
 <table><thead>
 <tr>
@@ -2465,39 +2689,79 @@ with a password reset link.</p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>ID of the public announcement.</td>
+<td>id of the terminal spot</td>
 </tr>
 <tr>
-<td>creator_name</td>
-<td>Name of announcement creator.</td>
+<td>name</td>
+<td>name of the terminal spot</td>
 </tr>
 <tr>
-<td>content</td>
-<td>Content of the public announcement.</td>
+<td>description</td>
+<td>description of the terminal spot</td>
 </tr>
 <tr>
-<td>task_id</td>
-<td>ID of the associated Task.</td>
+<td>soft_cap_rate</td>
+<td>Soft cap rate defines at what rate (not amount) of overtracked moods, a warning should get shown fir a terminals department</td>
 </tr>
 <tr>
-<td>own_reaction</td>
-<td>The reaction of the current user. Can be &ldquo;up&rdquo;, &ldquo;down&rdquo; or null.</td>
+<td>hard_cap_rate</td>
+<td>Hard cap rate defines at what rate (not amount) of overtracked moods, a terminal should not allow the tracking for a terminals department</td>
 </tr>
 <tr>
-<td>reaction_counts</td>
-<td>An Object with details for &ldquo;up&rdquo; and &ldquo;down&rdquo; reactions.</td>
+<td>mood_barometer_active</td>
+<td>A boolean value which indicates if the mood review feature is active for this terminal spot.</td>
 </tr>
 <tr>
-<td>reaction_counts[up]</td>
-<td>Amount of up votes.</td>
+<td>suggestions_active</td>
+<td>A boolean value which indicates if the suggestion box feature is activated for this terminal spot.</td>
 </tr>
 <tr>
-<td>reaction_counts[down]</td>
-<td>Amount of down votes.</td>
+<td>surveys_active</td>
+<td>A boolean value which indicates if the survey feature is activated for this terminal spot.</td>
+</tr>
+</tbody></table>
+
+<h4 id="side-loaded-department">side loaded department</h4>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the terminal spot</td>
 </tr>
 <tr>
-<td>created_at</td>
-<td>Date of the public announcement creation (in ISO8601)</td>
+<td>name</td>
+<td>name of the terminal spot</td>
+</tr>
+<tr>
+<td>breadcrumb</td>
+<td>All names in path to the department incl. it&rsquo;s own</td>
+</tr>
+</tbody></table>
+
+<h4 id="side-loaded-terminal_spot_department_settings">side loaded terminal_spot_department_settings</h4>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the terminal spot</td>
+</tr>
+<tr>
+<td>users_count</td>
+<td>how much users are supposed to track via this terminal_spot_department_setting</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>department id for this terminal_spot_department_setting (needed for tracking terminal mood)</td>
 </tr>
 </tbody></table>
 
