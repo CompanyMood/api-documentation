@@ -17,12 +17,13 @@ includes:
   - departments
   - event_pins
   - moods
-  - tasks
-  - terminal_spots
-  - settings
-  - suggestions
   - passwords
   - public_announcements
+  - reasonings
+  - settings
+  - suggestions
+  - tasks
+  - terminal_spots
   - users
   - widgets
 
