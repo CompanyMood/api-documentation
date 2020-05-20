@@ -43,25 +43,17 @@ Content-Type: application/json
        "attributes": {
          "username":"Anonym",
          "email":null,
-         "department_link":null,
          "department_string":null,
-         "discussion_path":null,
-         "type":"Topics",
          "custom_tags":["Health"],
          "custom_tag_label":"Health",
          "custom_tag_id":"5c8d26ee-3a0e-3c55-8281-7fu67ed069c5",
-         "feeling":"Happy",
          "feeling_key":"happy",
          "rating":100,
-         "created_at":"2020-05-03T15:59:15.922+01:00",
-         "created_at_as_integer":1583247555,
-         "cweek":"KW 21/20",
          "period":"KW 21/20",
          "comment":"Finally great again... Cured that arrow to the knee! :)",
          "answered":false,
          "answers_count":0,
          "answers":[],
-         "from_terminal":false,
          "chat_allowed":false,
          "additional_export_information":null
        }
@@ -101,24 +93,16 @@ Paramteter                    | Description
 ------------------------------|------------
 username                      | Authors name (if transparent) otherwise "Anonym"
 email                         | Authors email (if transparent) otherwise null
-department_link               | Link to the department, if anonymity rules allow it
 department_string             | Department name, if anonymity rules allow it
-discussion_path               | Path to the reasonings discussion
-type                          | Translated type label
 custom_tags                   | Array of translated custom tag labels
 custom_tag_label              | Translated custom tag label
 custom_tag_id                 | Custom tag id
-feeling                       | Translated feeling label
 feeling_key                   | Feeling key [sad, unhappy, ok, satisfied, happy, positive, negative]
 rating                        | Rating of the feeling [0, 25, 50, 75, 100]
-created_at                    | Timestamp for the creation (in ISO8601)
-created_at_as_integer         | Integer representation of the created_at timestamp
-cweek                         | Period string
 period                        | Period string
 comment                       | Given comment for the reasoning - can be null
 answered                      | Have this reasoning been answered? - Boolean
 answers_count                 | Count of given answers
 answers                       | Answers as an array
-from_terminal                 | Specifies if the reasoning was created by an terminal
 chat_allowed                  | Specifies if chat/discussion is allowed
 additional_export_information | Additional export informations - if applied
