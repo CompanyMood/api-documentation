@@ -27,6 +27,7 @@ Content-Type: application/json
          "description": "Implement continuous Mood monitoring",
          "percent": 100,
          "state": "implemented",
+         "published": true,
          "created_at": "2018-03-11"
        }
      },
@@ -38,6 +39,7 @@ Content-Type: application/json
          "description": "Big office party",
          "percent": 10,
          "state": "idea",
+         "published": false,
          "created_at": "2018-03-15"
        }
      }
@@ -54,4 +56,5 @@ name             | Name of the task
 description      | Description of the task
 percent          | Progress of the task in percent
 state            | State of the task
+published        | Did this task got published to all affected users?
 created_at       | create at date of task
