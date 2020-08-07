@@ -11,7 +11,6 @@ toc_footers:
 includes:
   - heartbeat
   - sessions
-  - oauth
   - companies
   - custom_tags
   - departments
