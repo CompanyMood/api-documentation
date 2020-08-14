@@ -15,6 +15,7 @@ includes:
   - custom_tags
   - departments
   - event_pins
+  - oauth
   - moods
   - passwords
   - public_announcements
