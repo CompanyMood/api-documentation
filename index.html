@@ -925,6 +925,424 @@ admin of the company.</p>
 </tr>
 </tbody></table>
 
+          <h1 id="oauth">Oauth</h1>
+
+<h2 id="sign-in-via-google-oauth2">Sign in via google oauth2</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/oauth/google_oauth2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT ID TOKEN HERE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d7f7eea-b088-46dd-b29c-51ccfa4085e7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gravatar.com/avatar/829afce351884fcde132544bf9686221"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3dad26-31a4-4f6d-a799-b3cd9053dc83"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8f40670c-9927-4712-979f-81a2fa4c7253"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can create a new oauth session and get the <code class="prettyprint">auth_token</code> and other important informations
+about the just logged in user by sending a <code class="prettyprint">id_token</code> to this endpoint.</p>
+
+<p>The returned role can be &ldquo;admin&rdquo;, &ldquo;supervisor&rdquo;, &ldquo;employee&rdquo; or &ldquo;department_manager&rdquo;.</p>
+
+<h3 id="post-attributes">POST Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id_token</td>
+<td>Request this token from google auth api (see <a href="https://developers.google.com/identity/sign-in/web/sign-in">https://developers.google.com/identity/sign-in/web/sign-in</a>)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstname</td>
+<td>Firstname of the sessions user.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Lastname of the sessions user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email of the sessions user.</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>Locale of the sessions user.</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>Url to the profile image of the sessions user.</td>
+</tr>
+<tr>
+<td>role</td>
+<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>).</td>
+</tr>
+<tr>
+<td>auth_token</td>
+<td>Auth token for users session, use this for further authorization on endpoints.</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>ID of the company, the user belongs to. Empty if the user does&rsquo;t belong to a company, yet.</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+<tr>
+<td>mood_creation_notification_email_active</td>
+<td>Will the user receive notifications for mood reviews per email?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_email_active</td>
+<td>Will the user receive reminder for mood reviews per email if he didn&rsquo;t give an answer already?</td>
+</tr>
+<tr>
+<td>mood_creation_notification_push_notification_active</td>
+<td>Will the user receive push notifications for mood reviews on mobile phones?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_push_notification_active</td>
+<td>Will the user receive push notifications to remind him to answer the review question on mobile phone?</td>
+</tr>
+<tr>
+<td>weekly_status_notification_active</td>
+<td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
+</tr>
+</tbody></table>
+
+<h2 id="sign-in-via-microsoft-azure-oauth2">Sign in via Microsoft Azure oauth2</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/oauth/azure_oauth2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT ID TOKEN HERE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d7f7eea-b088-46dd-b29c-51ccfa4085e7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gravatar.com/avatar/829afce351884fcde132544bf9686221"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3dad26-31a4-4f6d-a799-b3cd9053dc83"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8f40670c-9927-4712-979f-81a2fa4c7253"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can create a new oauth session and get the <code class="prettyprint">auth_token</code> and other important informations
+about the just logged in user by sending a <code class="prettyprint">id_token</code> to this endpoint.</p>
+
+<p>The returned role can be &ldquo;admin&rdquo;, &ldquo;supervisor&rdquo;, &ldquo;employee&rdquo; or &ldquo;department_manager&rdquo;.</p>
+
+<h3 id="post-attributes">POST Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id_token</td>
+<td>Request this token from azure auth api (see <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token">https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token</a>)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstname</td>
+<td>Firstname of the sessions user.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Lastname of the sessions user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email of the sessions user.</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>Locale of the sessions user.</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>Url to the profile image of the sessions user.</td>
+</tr>
+<tr>
+<td>role</td>
+<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>).</td>
+</tr>
+<tr>
+<td>auth_token</td>
+<td>Auth token for users session, use this for further authorization on endpoints.</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>ID of the company, the user belongs to. Empty if the user does&rsquo;t belong to a company, yet.</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+<tr>
+<td>mood_creation_notification_email_active</td>
+<td>Will the user receive notifications for mood reviews per email?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_email_active</td>
+<td>Will the user receive reminder for mood reviews per email if he didn&rsquo;t give an answer already?</td>
+</tr>
+<tr>
+<td>mood_creation_notification_push_notification_active</td>
+<td>Will the user receive push notifications for mood reviews on mobile phones?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_push_notification_active</td>
+<td>Will the user receive push notifications to remind him to answer the review question on mobile phone?</td>
+</tr>
+<tr>
+<td>weekly_status_notification_active</td>
+<td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
+</tr>
+</tbody></table>
+
+<h2 id="sign-in-via-apple">Sign in via apple</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/oauth/apple</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authorizationCode from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"authorized_scopes"</span><span class="p">:</span><span class="w">  </span><span class="s2">"authorizedScopes from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w">              </span><span class="s2">"email from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w">          </span><span class="s2">"fullName from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identity_token"</span><span class="p">:</span><span class="w">     </span><span class="s2">"identityToken from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"real_user_status"</span><span class="p">:</span><span class="w">   </span><span class="s2">"realUserStatus from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w">              </span><span class="s2">"state from apple-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w">               </span><span class="s2">"user from apple-service"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d7f7eea-b088-46dd-b29c-51ccfa4085e7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gravatar.com/avatar/829afce351884fcde132544bf9686221"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3dad26-31a4-4f6d-a799-b3cd9053dc83"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8f40670c-9927-4712-979f-81a2fa4c7253"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_notification_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The returned role can be &ldquo;admin&rdquo;, &ldquo;supervisor&rdquo;, &ldquo;employee&rdquo; or &ldquo;department_manager&rdquo;.</p>
+
+<h3 id="post-attributes">POST Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>authorizationCode</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>authorizedScopes</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>fullName</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>identityToken</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>realUserStatus</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Get this from login with apples (using AppleAuthRequestResponse interface)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstname</td>
+<td>Firstname of the sessions user.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Lastname of the sessions user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email of the sessions user.</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>Locale of the sessions user.</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>Url to the profile image of the sessions user.</td>
+</tr>
+<tr>
+<td>role</td>
+<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>).</td>
+</tr>
+<tr>
+<td>auth_token</td>
+<td>Auth token for users session, use this for further authorization on endpoints.</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>ID of the company, the user belongs to. Empty if the user does&rsquo;t belong to a company, yet.</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+<tr>
+<td>mood_creation_notification_email_active</td>
+<td>Will the user receive notifications for mood reviews per email?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_email_active</td>
+<td>Will the user receive reminder for mood reviews per email if he didn&rsquo;t give an answer already?</td>
+</tr>
+<tr>
+<td>mood_creation_notification_push_notification_active</td>
+<td>Will the user receive push notifications for mood reviews on mobile phones?</td>
+</tr>
+<tr>
+<td>mood_creation_reminder_push_notification_active</td>
+<td>Will the user receive push notifications to remind him to answer the review question on mobile phone?</td>
+</tr>
+<tr>
+<td>weekly_status_notification_active</td>
+<td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
+</tr>
+</tbody></table>
+
           <h1 id="moods">Moods</h1>
 
 <h2 id="retrieve-moods-of-the-logged-in-user">Retrieve moods of the logged in user</h2>
