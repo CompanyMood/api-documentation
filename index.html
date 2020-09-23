@@ -1356,7 +1356,8 @@ about the just logged in user by sending a <code class="prettyprint">id_token</c
 <span class="p">{</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-30"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-30"</span><span class="w">
+    </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"device_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx-xxxx-xxxx"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1441,6 +1442,11 @@ and <code class="prettyprint">deparment_id</code>parameters.</p>
 <td>department_id</td>
 <td>optional</td>
 <td>Return all moods of that department (true or false) - only works for company admins</td>
+</tr>
+<tr>
+<td>device_uid</td>
+<td>optional</td>
+<td>If the user is authenticated by a QrCode, you can use the device_uid to retrieve only the devices moods</td>
 </tr>
 </tbody></table>
 
@@ -1615,6 +1621,11 @@ and <code class="prettyprint">deparment_id</code>parameters.</p>
 <td>reasonings[reason]</td>
 <td>optional</td>
 <td>reason for the reasoning as a string</td>
+</tr>
+<tr>
+<td>device_uid</td>
+<td>optional</td>
+<td>DeviceUid of the device - only send this if the user is authenticated via QrCode</td>
 </tr>
 </tbody></table>
 
