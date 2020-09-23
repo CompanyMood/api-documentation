@@ -13,7 +13,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
 {
   "meta": {
     "from": "2015-01-30",
-    "to": "2015-04-30"
+    "to": "2015-04-30",
+    "device_uid": "xxxx-xxxx-xxxx"
   }
 }
 ```
@@ -79,6 +80,7 @@ from             | optional | Date to limit the moods results (in ISO8601)
 to               | optional | Date to limit the moods results (in ISO8601)
 all_in_company   | optional | Return all moods of that company (true or false) - only works for company admins
 department_id    | optional | Return all moods of that department (true or false) - only works for company admins
+device_uid       | optional | If the user is authenticated by a QrCode, you can use the device_uid to retrieve only the devices moods
 
 ### Response META Attributes
 
@@ -176,6 +178,7 @@ reasonings                  | optional | list of reasonings as an array
 reasonings[custom_tag_id]   | required | ID of the custom tag for the reasoning
 reasonings[feeling]         | required | feeling for the reasoning
 reasonings[reason]          | optional | reason for the reasoning as a string
+device_uid                  | optional | DeviceUid of the device - only send this if the user is authenticated via QrCode
 
 ### Response Attributes
 
