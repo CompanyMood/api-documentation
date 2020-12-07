@@ -13,6 +13,7 @@ includes:
   - sessions
   - companies
   - custom_tags
+  - discussions
   - departments
   - event_pins
   - oauth
