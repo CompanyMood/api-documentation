@@ -27,7 +27,7 @@ Content-Type: application/json
           }
         }
       },
-      "id": "d26e8fb7-0290-4573-bd8f-cfd8ec39c485",
+      "id": "d26e8fb7-0290-4573-bd8f-ffd8ec39c485",
       "type": "discussions"
     },
     {
@@ -39,7 +39,7 @@ Content-Type: application/json
           }
         }
       },
-      "id": "561d35fd-a97f-4270-951f-6c425393abe2",
+      "id": "561d35fd-a97f-4270-951f-5c425393abe2",
       "type": "discussions"
     }
   ],
@@ -97,7 +97,7 @@ user_name      | User name of the creator of the discussed resource
 Discussions are the chats a user is participating in.
 
 ```http
-GET /discussions/f7559f2a-8f1c-461e-8a9b-7efea5564edb HTTP/1.1
+GET /discussions/d26e8fb7-0290-4573-bd8f-ffd8ec39c485 HTTP/1.1
 Host: api.company-mood.com
 Content-Type: application/json
 Accept: application/vnd.company-mood-v2+json
@@ -111,12 +111,45 @@ Content-Type: application/json
 
 {
   "data": {
-    "id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
-    "type": "discussions",
-    "attributes": {
-      "name": "Workload"
+    "relationships": {
+      "comments": {
+        "data": [
+          {
+            "id": "8419",
+            "type": "comments"
+          },
+          {
+            "id": "8437",
+            "type": "comments"
+          }
+        ]
+      }
+    },
+    "id": "d26e8fb7-0290-4573-bd8f-ffd8ec39c485",
+    "type": "discussions"
+  },
+  "included": [
+    {
+      "id": "8419",
+      "attributes": {
+        "content": "😢",
+        "created_at": "09.09.2020",
+        "author_name": "Markus Schwed",
+        "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827"
+      },
+      "type": "comments"
+    },
+    {
+      "id": "8437",
+      "attributes": {
+        "content": "I'm sorry. 😘",
+        "created_at": "10.09.2020",
+        "author_name": "Anonym",
+        "author_image": "/assets/defaults/user/mini-avatar-287e30a2e7e10a75d7afc0731799d16a58ce47c07b14fb3e8af573b9dac8f0c4.png"
+      },
+      "type": "comments"
     }
-  }
+  ]
 }
 ```
 
@@ -125,4 +158,14 @@ Content-Type: application/json
 Paramteter     | Description
 ---------------|------------
 id             | id of the dicussion
-TBD            | TBD
+relationships  | Object with the id and type of discussions comments
+
+#### Included Attributes
+
+Parameter      | Description
+---------------|------------
+id             | Id of the comment
+content        | Content of the comment
+created_at     | Creation date of the comment
+author_name    | Name of the comments creator
+author_image   | Image URL of the comments creator
