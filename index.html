@@ -786,6 +786,96 @@ Returns with an 401 if the user does not belong to a company.</p>
 </tr>
 </tbody></table>
 
+          <h1 id="comments-for-chat">Comments (for chat)</h1>
+
+<h2 id="create-a-new-comment-for-a-discussion">Create a new comment for a discussion</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/comments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"discussion_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"679c5ffb-2d81-4608-8c4d-0f373b6f1401"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Happy to hear from you."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8437"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Happy to hear from you."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.09.2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"author_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anonym"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"author_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/defaults/user/mini-avatar-287e30a2e7e10a75d7afc0731799d16a58ce47c07b14fb3e8af573b9dac8f0c4.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="post-attributes">POST Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>discussion_id</td>
+<td>required</td>
+<td>Id of the discussion you want to post to</td>
+</tr>
+<tr>
+<td>comment[content]</td>
+<td>required</td>
+<td>Comment you want to post</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the comment</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Content of the comment</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Creation date of the comment</td>
+</tr>
+<tr>
+<td>author_name</td>
+<td>Name of the comments creator</td>
+</tr>
+<tr>
+<td>author_image</td>
+<td>Image URL of the comments creator</td>
+</tr>
+</tbody></table>
+
           <h1 id="discussions">Discussions</h1>
 
 <h2 id="retrieve-the-logged-in-users-discussions">Retrieve the logged in users discussions</h2>
