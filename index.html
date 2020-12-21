@@ -812,7 +812,7 @@ Returns with an 401 if the user does not belong to a company.</p>
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d26e8fb7-0290-4573-bd8f-cfd8ec39c485"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d26e8fb7-0290-4573-bd8f-ffd8ec39c485"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discussions"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -824,7 +824,7 @@ Returns with an 401 if the user does not belong to a company.</p>
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"561d35fd-a97f-4270-951f-6c425393abe2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"561d35fd-a97f-4270-951f-5c425393abe2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discussions"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -916,7 +916,7 @@ Returns with an 401 if the user does not belong to a company.</p>
 <h2 id="retrieve-the-data-of-a-specific-discussion-including-comments">Retrieve the data of a specific discussion including comments</h2>
 
 <p>Discussions are the chats a user is participating in.</p>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/discussions/f7559f2a-8f1c-461e-8a9b-7efea5564edb</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/discussions/d26e8fb7-0290-4573-bd8f-ffd8ec39c485</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
@@ -928,12 +928,45 @@ Returns with an 401 if the user does not belong to a company.</p>
 
 <span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discussions"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workload"</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8419"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8437"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d26e8fb7-0290-4573-bd8f-ffd8ec39c485"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discussions"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8419"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"😢"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09.09.2020"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"author_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Markus Schwed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"author_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8437"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I'm sorry. 😘"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.09.2020"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"author_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anonym"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"author_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/defaults/user/mini-avatar-287e30a2e7e10a75d7afc0731799d16a58ce47c07b14fb3e8af573b9dac8f0c4.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -950,8 +983,38 @@ Returns with an 401 if the user does not belong to a company.</p>
 <td>id of the dicussion</td>
 </tr>
 <tr>
-<td>TBD</td>
-<td>TBD</td>
+<td>relationships</td>
+<td>Object with the id and type of discussions comments</td>
+</tr>
+</tbody></table>
+
+<h4 id="included-attributes">Included Attributes</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the comment</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Content of the comment</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Creation date of the comment</td>
+</tr>
+<tr>
+<td>author_name</td>
+<td>Name of the comments creator</td>
+</tr>
+<tr>
+<td>author_image</td>
+<td>Image URL of the comments creator</td>
 </tr>
 </tbody></table>
 
