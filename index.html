@@ -3471,6 +3471,129 @@ want to track a terminal mood. More under /moods</p>
 </tr>
 </tbody></table>
 
+<h2 id="get-users-statistics">Get users statistics</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/statistics</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f51875-9a43-4d6c-a376-6368f09858db</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-16"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc41eea0-1f87-4e07-8dda-6449430e7132"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users-statistics"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users-statistics"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"employees_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invitations_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"terminal_users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"active_users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"users_total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="get-meta-attributes">GET META Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>from</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>origin_type</td>
+<td>optional</td>
+<td>Enum [&ldquo;Company&rdquo;, &ldquo;Department&rdquo;]</td>
+</tr>
+<tr>
+<td>origin_id</td>
+<td>optional</td>
+<td>ID of the requested origin which stats are requested</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-meta-attributes">Response META Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>from</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>optional</td>
+<td>Date to limit the moods results (in ISO8601)</td>
+</tr>
+<tr>
+<td>origin_type</td>
+<td>optional</td>
+<td>Enum [&ldquo;Company&rdquo;, &ldquo;Department&rdquo;]</td>
+</tr>
+<tr>
+<td>origin_id</td>
+<td>optional</td>
+<td>ID of the requested origin which stats are requested</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>employees_amount</td>
+<td>Amount of the invitation accepted users</td>
+</tr>
+<tr>
+<td>invitations_amount</td>
+<td>Amount of the not accepted invitations</td>
+</tr>
+<tr>
+<td>terminal_users_amount</td>
+<td>Amount of the terminal users (set in terminals)</td>
+</tr>
+<tr>
+<td>active_users_amount</td>
+<td>Amount of all participating users (employees + terminal)</td>
+</tr>
+<tr>
+<td>users_total_amount</td>
+<td>Amount of all users combined</td>
+</tr>
+</tbody></table>
+
           <h1 id="widgets">Widgets</h1>
 
 <h2 id="get-all-widgets">Get all widgets</h2>
