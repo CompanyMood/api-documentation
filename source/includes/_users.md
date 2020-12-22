@@ -64,3 +64,66 @@ mood_review_snoozed_until                           | Returns a date time if the
 current_tracking_time                               | The next tracking time when the user should be presented with the mood tracking form.
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
 auth_token                                          | Auth token for users session, use this for further authorization on endpoints
+
+## Get users statistics
+
+```http
+GET /users/statistics HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+X-App-Token: 27f51875-9a43-4d6c-a376-6368f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "meta": {
+    "from": "2020-11-16",
+    "to": "2020-12-27",
+    "origin_type": "Company",
+    "origin_id": "bc41eea0-1f87-4e07-8dda-6449430e7132"
+  },
+  "data": {
+    "id": "users-statistics",
+    "type": "users-statistics",
+    "attributes": {
+      "employees_amount": 4.0,
+      "invitations_amount": 4.0,
+      "terminal_users_amount": 10.0,
+      "active_users_amount": 14.0,
+      "users_total_amount": 18.0
+    }
+  }
+}
+```
+
+### GET META Attributes
+
+Paramteter   |          | Description |
+-------------|----------|-------------
+from         | optional | Date to limit the moods results (in ISO8601)
+to           | optional | Date to limit the moods results (in ISO8601)
+origin_type  | optional | Enum ["Company", "Department"]
+origin_id    | optional | ID of the requested origin which stats are requested
+
+### Response META Attributes
+
+Paramteter   |          | Description |
+-------------|----------|-------------
+from         | optional | Date to limit the moods results (in ISO8601)
+to           | optional | Date to limit the moods results (in ISO8601)
+origin_type  | optional | Enum ["Company", "Department"]
+origin_id    | optional | ID of the requested origin which stats are requested
+
+### Response Attributes
+
+Paramteter            | Description
+----------------------|------------
+employees_amount      | Amount of the invitation accepted users
+invitations_amount    | Amount of the not accepted invitations
+terminal_users_amount | Amount of the terminal users (set in terminals)
+active_users_amount   | Amount of all participating users (employees + terminal)
+users_total_amount    | Amount of all users combined
