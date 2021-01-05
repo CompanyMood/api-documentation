@@ -49,10 +49,13 @@ Content-Type: application/json
       "attributes": {
         "feeling": "ok",
         "reason": "A bit rugh atm",
-        "custom_tag_id": 25540,
-        "created-at": "2020-09-04",
+        "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
+        "created_at": "2020-09-04",
         "last_comment": "I'm sorry. 😘",
-        "user_name": "Anonymous"
+        "user_name": "Anonymous",
+        "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
+        "department_name": "Development",
+        "department_hirarchy": "IT > Development"
       },
       "type": "discussable"
     },
@@ -61,10 +64,13 @@ Content-Type: application/json
       "attributes": {
         "feeling": "satisfied",
         "reason": "Finished some nice features! ",
-        "custom_tag_id": 25538,
-        "created-at": "2020-08-19",
+        "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
+        "created_at": "2020-08-19",
         "last_comment": "🤩",
-        "user_name": "Anonymous"
+        "user_name": "Anonymous",
+        "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
+        "department_name": "Development",
+        "department_hirarchy": "IT > Development"
       },
       "type": "discussable"
     }
@@ -81,15 +87,18 @@ relationships  | object with id and type of the discussable (the resource, the d
 
 #### Included Attributes
 
-Parameter      | Description
----------------|------------
-id             | Id of the discussed resource
-feeling        | Felling key of the discussed resource
-reason         | COntent of the discussed resource
-custom_tag_id  | Id of the custom tags discussed resource
-created_at     | Creation date of the discussed resource
-last_comment   | Last comment on the discussion
-user_name      | User name of the creator of the discussed resource
+Parameter           | Description
+--------------------|------------
+id                  | Id of the discussed resource
+feeling             | Felling key of the discussed resource
+reason              | COntent of the discussed resource
+custom_tag_id       | Id of the custom tags discussed resource
+created_at          | Creation date of the discussed resource
+last_comment        | Last comment on the discussion
+user_name           | User name of the creator of the discussed resource
+user_image          | User image url
+department_name     | Department name (without hirarchy)
+department_hirarchy | Department name (with hirarchy)
 
 
 
