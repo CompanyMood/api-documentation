@@ -28,6 +28,13 @@ Content-Type: application/json
         }
       },
       "id": "d26e8fb7-0290-4573-bd8f-ffd8ec39c485",
+      "attributes": {
+        "unseen_comments_count": 0,
+        "total_comments_count": 2,
+        "last_comment_created_at": "2020-09-10",
+        "last_comment": "I'm sorry. 😘",
+        "sorting_score": 1599733045
+      },
       "type": "discussions"
     },
     {
@@ -40,6 +47,13 @@ Content-Type: application/json
         }
       },
       "id": "561d35fd-a97f-4270-951f-5c425393abe2",
+      "attributes": {
+        "unseen_comments_count": 1,
+        "total_comments_count": 5,
+        "last_comment_created_at": "2020-09-10",
+        "last_comment": "🤩",
+        "sorting_score": 1999734045
+      },
       "type": "discussions"
     }
   ],
@@ -51,7 +65,6 @@ Content-Type: application/json
         "reason": "A bit rugh atm",
         "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
         "created_at": "2020-09-04",
-        "last_comment": "I'm sorry. 😘",
         "user_name": "Anonymous",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
         "department_name": "Development",
@@ -66,11 +79,10 @@ Content-Type: application/json
         "reason": "Finished some nice features! ",
         "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
         "created_at": "2020-08-19",
-        "last_comment": "🤩",
         "user_name": "Anonymous",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
-        "department_name": "Development",
-        "department_hirarchy": "IT > Development"
+        "department_name": null,
+        "department_hirarchy": null
       },
       "type": "discussable"
     }
@@ -80,10 +92,15 @@ Content-Type: application/json
 
 ### Response Attributes
 
-Paramteter     | Description
----------------|------------
-id             | id of the dicussion
-relationships  | object with id and type of the discussable (the resource, the discussion is about)
+Paramteter              | Description
+------------------------|------------
+id                      | id of the dicussion
+relationships           | object with id and type of the discussable (the resource, the discussion is about)
+unseen_comments_count   | Count of unseen comments
+total_comments_count    | Count of total comments
+last_comment_created_at | Date of last comment
+last_comment            | Last comment on the discussion
+sorting_score           | Score used for sorting (unseen comments > new seen ones > old seen ones)
 
 #### Included Attributes
 
@@ -94,7 +111,6 @@ feeling             | Felling key of the discussed resource
 reason              | COntent of the discussed resource
 custom_tag_id       | Id of the custom tags discussed resource
 created_at          | Creation date of the discussed resource
-last_comment        | Last comment on the discussion
 user_name           | User name of the creator of the discussed resource
 user_image          | User image url
 department_name     | Department name (without hirarchy)
