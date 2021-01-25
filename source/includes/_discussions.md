@@ -187,10 +187,12 @@ relationships  | Object with the id and type of discussions comments
 
 #### Included Attributes
 
-Parameter      | Description
----------------|------------
-id             | Id of the comment
-content        | Content of the comment
-created_at     | Creation date of the comment
-author_name    | Name of the comments creator
-author_image   | Image URL of the comments creator
+Parameter              | Description
+-----------------------|------------
+id                     | Id of the comment
+content                | Content of the comment
+created_at             | Creation date of the comment
+author_name            | Name of the comments creator
+author_image           | Image URL of the comments creator
+author_is_current_user | Boolean returns true if the current user is the comments author
+sorting_score          | Score for sorting (the higher the score, the newer)
