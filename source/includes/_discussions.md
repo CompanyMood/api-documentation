@@ -65,7 +65,8 @@ Content-Type: application/json
         "reason": "A bit rugh atm",
         "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
         "created_at": "2020-09-04",
-        "user_name": "Anonymous",
+        "user_name": "Walter Weber",
+        "user_name_with_email": "Walter Weber (walter@company-mood.com)",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
         "department_name": "Development",
         "department_hirarchy": "IT > Development"
@@ -80,6 +81,7 @@ Content-Type: application/json
         "custom_tag_id": "0e7f695f-d4b1-41a3-9796-51e2c459b6db",
         "created_at": "2020-08-19",
         "user_name": "Anonymous",
+        "user_name_with_email": "Anonymous",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
         "department_name": null,
         "department_hirarchy": null
@@ -104,17 +106,18 @@ sorting_score           | Score used for sorting (unseen comments > new seen one
 
 #### Included Attributes
 
-Parameter           | Description
---------------------|------------
-id                  | Id of the discussed resource
-feeling             | Felling key of the discussed resource
-reason              | COntent of the discussed resource
-custom_tag_id       | Id of the custom tags discussed resource
-created_at          | Creation date of the discussed resource
-user_name           | User name of the creator of the discussed resource
-user_image          | User image url
-department_name     | Department name (without hirarchy)
-department_hirarchy | Department name (with hirarchy)
+Parameter            | Description
+---------------------|------------
+id                   | Id of the discussed resource
+feeling              | Felling key of the discussed resource
+reason               | COntent of the discussed resource
+custom_tag_id        | Id of the custom tags discussed resource
+created_at           | Creation date of the discussed resource
+user_name            | User name of the creator of the discussed resource
+user_name_with_email | User name of the creator of the discussed resource - with added email in ()
+user_image           | User image url
+department_name      | Department name (without hirarchy)
+department_hirarchy  | Department name (with hirarchy)
 
 
 
@@ -160,6 +163,7 @@ Content-Type: application/json
         "content": "😢",
         "created_at": "09.09.2020",
         "author_name": "Markus Schwed",
+        "author_name_with_email": "Markus Schwed (markus@company-mood.com)",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827"
       },
       "type": "comments"
@@ -170,6 +174,7 @@ Content-Type: application/json
         "content": "I'm sorry. 😘",
         "created_at": "10.09.2020",
         "author_name": "Anonym",
+        "author_name_with_email": "Anonym",
         "author_image": "/assets/defaults/user/mini-avatar-287e30a2e7e10a75d7afc0731799d16a58ce47c07b14fb3e8af573b9dac8f0c4.png"
       },
       "type": "comments"
@@ -193,6 +198,7 @@ id                     | Id of the comment
 content                | Content of the comment
 created_at             | Creation date of the comment
 author_name            | Name of the comments creator
+author_name_with_email | Name of the comments creator - with added email in ()
 author_image           | Image URL of the comments creator
 author_is_current_user | Boolean returns true if the current user is the comments author
 sorting_score          | Score for sorting (the higher the score, the newer)
