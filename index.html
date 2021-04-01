@@ -679,7 +679,13 @@ Returns with an 401 if the user does not belong to a company.</p>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
 <span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
-</code></pre>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"include_archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -690,6 +696,7 @@ Returns with an 401 if the user does not belong to a company.</p>
        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_tags"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workload"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
            </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auslastung"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workload"</span><span class="p">,</span><span class="w">
@@ -732,6 +739,7 @@ Returns with an 401 if the user does not belong to a company.</p>
        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_tags"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
            </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Führungskräfte"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Managers"</span><span class="p">,</span><span class="w">
@@ -752,6 +760,22 @@ Returns with an 401 if the user does not belong to a company.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h3 id="get-meta-attributes">GET META Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_archived</td>
+<td>optional</td>
+<td>Should response include archived custom tags as well? (default: false)</td>
+</tr>
+</tbody></table>
+
 <h3 id="response-attributes">Response Attributes</h3>
 
 <table><thead>
@@ -767,6 +791,10 @@ Returns with an 401 if the user does not belong to a company.</p>
 <tr>
 <td>name</td>
 <td>name (DEPRECATED)</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Is this custom tag available for usage or already archived</td>
 </tr>
 <tr>
 <td>labels</td>
