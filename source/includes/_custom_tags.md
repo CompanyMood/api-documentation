@@ -11,6 +11,12 @@ Content-Type: application/json
 Accept: application/vnd.company-mood-v2+json
 Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
 X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+
+{
+  "meta": {
+    "include_archived": true
+  }
+}
 ```
 
 ```http
@@ -24,6 +30,7 @@ Content-Type: application/json
        "type": "custom_tags",
        "attributes": {
          "name": "Workload",
+         "archived": "false",
          "labels": {
            "de": "Auslastung",
            "en": "Workload",
@@ -66,6 +73,7 @@ Content-Type: application/json
        "type": "custom_tags",
        "attributes": {
          "name": "Management",
+         "archived": "true",
          "labels": {
            "de": "Führungskräfte",
            "en": "Managers",
@@ -86,12 +94,19 @@ Content-Type: application/json
 }
 ```
 
+### GET META Attributes
+
+Paramteter       |          | Description |
+-----------------|----------|-------------
+include_archived | optional | Should response include archived custom tags as well? (default: false)
+
 ### Response Attributes
 
 Paramteter     | Description
 ---------------|------------
 id             | id of the tag (used for `custom_tag_ids` in mood creation)
 name           | name (DEPRECATED)
+archived       | Is this custom tag available for usage or already archived
 labels         | An object of translations of the custom tag name.
 de_translation | German translation of the tag (DEPRECATED)
 en_translation | English translation of the tag (DEPRECATED)
