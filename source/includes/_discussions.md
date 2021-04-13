@@ -69,7 +69,8 @@ Content-Type: application/json
         "user_name_with_email": "Walter Weber (walter@company-mood.com)",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
         "department_name": "Development",
-        "department_hirarchy": "IT > Development"
+        "department_hirarchy": "IT > Development",
+        "period_name": "CW 30/20"
       },
       "type": "discussable"
     },
@@ -84,7 +85,8 @@ Content-Type: application/json
         "user_name_with_email": "Anonymous",
         "author_image": "https://cdn.company-mood.com/users/avatars/4faebf2cc1ed879d15f325a7b0dc74a7292c03e9/mini.jpg?1583853827",
         "department_name": null,
-        "department_hirarchy": null
+        "department_hirarchy": null,
+        "period_name": "CW 28/20"
       },
       "type": "discussable"
     }
@@ -118,6 +120,7 @@ user_name_with_email | User name of the creator of the discussed resource - with
 user_image           | User image url
 department_name      | Department name (without hirarchy)
 department_hirarchy  | Department name (with hirarchy)
+period_name          | Name of the creation tracking period
 
 
 
