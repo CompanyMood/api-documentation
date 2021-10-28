@@ -42,6 +42,17 @@ Content-Type: application/json
            "pt": "Carga de trabalho",
            "ru": "Рабочая нагрузка"
          },
+         "descriptions": {
+           "de": "Auslastung",
+           "en": "Workload",
+           "fr": "Charge de travail",
+           "es": "Carga de trabajo",
+           "it": "Carico di lavoro",
+           "nl": "Werkbelasting",
+           "pl": "Obciążenie pracą",
+           "pt": "Carga de trabalho",
+           "ru": "Рабочая нагрузка"
+         },
          "de_translation": "Auslastung",
          "en_translation": "Workload",
          "fr_translation": "Charge de travail"
@@ -53,6 +64,17 @@ Content-Type: application/json
        "attributes": {
          "name": "Privat",
          "labels": {
+           "de": "Privat",
+           "en": "Private",
+           "fr": "Privé",
+           "es": null,
+           "it": null,
+           "nl": null,
+           "pl": null,
+           "pt": null,
+           "ru": null
+         },
+         "descriptions": {
            "de": "Privat",
            "en": "Private",
            "fr": "Privé",
@@ -75,6 +97,17 @@ Content-Type: application/json
          "name": "Management",
          "archived": "true",
          "labels": {
+           "de": "Führungskräfte",
+           "en": "Managers",
+           "fr": "Managers / Responsables",
+           "es": "personal directivo",
+           "it": "Personale direttivo",
+           "nl": "Leidinggevenden",
+           "pl": "Menedżerowie",
+           "pt": "Gerentes",
+           "ru": "Менеджеры"
+         },
+         "descriptions": {
            "de": "Führungskräfte",
            "en": "Managers",
            "fr": "Managers / Responsables",
@@ -108,6 +141,7 @@ id             | id of the tag (used for `custom_tag_ids` in mood creation)
 name           | name (DEPRECATED)
 archived       | Is this custom tag available for usage or already archived
 labels         | An object of translations of the custom tag name.
+descriptions   | An object of translations of the custom tag description.
 de_translation | German translation of the tag (DEPRECATED)
 en_translation | English translation of the tag (DEPRECATED)
 fr_translation | English translation of the tag (DEPRECATED)
