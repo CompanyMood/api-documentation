@@ -54,9 +54,9 @@ The returned role can be "admin", "supervisor", "employee" or "department_manage
 
 ### POST Attributes
 
-Paramteter | Description
------------|------------
-id_token   | Request this token from google auth api (see <https://developers.google.com/identity/sign-in/web/sign-in>)
+Paramteter     | Description
+---------------|------------
+id_token       | Request this token from google auth api (see <https://developers.google.com/identity/sign-in/web/sign-in>)
 
 ### Response Attributes
 
@@ -92,6 +92,8 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
     "type": "oauth",
     "attributes": {
       "id_token": "INSERT ID TOKEN HERE"
+      // OR
+      "access_token": "INSERT ACCESS TOKEN HERE"
     }
   }
 }
@@ -131,10 +133,13 @@ about the just logged in user by sending a `id_token` to this endpoint.
 The returned role can be "admin", "supervisor", "employee" or "department_manager".
 
 ### POST Attributes
+We support those 2 token types for azure authentication via oauth2.
+Make sure to only send one of them rather than both in the same request.
 
-Paramteter | Description
------------|------------
-id_token   | Request this token from azure auth api (see <https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token>)
+Paramteter     | Description
+---------------|------------
+id_token       | Request this token from azure auth api (see <https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token>)
+access_token   | Request this token from google auth api (see <https://developers.google.com/identity/sign-in/web/sign-in>)
 
 ### Response Attributes
 
