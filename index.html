@@ -333,6 +333,24 @@ You need an CompanyMood account.
 </tr>
 </tbody></table>
 
+<h2 id="end-session-logout">End session / logout</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/sessions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This will logout the user and regenerates the users api_access_token.
+To retrieve the new api_access_token you need to create a new user session using the create endpoint above.</p>
+
           <h1 id="companies">Companies</h1>
 
 <h2 id="retrieve-the-company-stats-for-given-company-id">Retrieve the company stats for given company id</h2>
@@ -708,6 +726,17 @@ Returns with an 401 if the user does not belong to a company.</p>
            </span><span class="nt">"pt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carga de trabalho"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Рабочая нагрузка"</span><span class="w">
          </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auslastung"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workload"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charge de travail"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carga de trabajo"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"it"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carico di lavoro"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"nl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Werkbelasting"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obciążenie pracą"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carga de trabalho"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Рабочая нагрузка"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
          </span><span class="nt">"de_translation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auslastung"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"en_translation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workload"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"fr_translation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charge de travail"</span><span class="w">
@@ -719,6 +748,17 @@ Returns with an 401 if the user does not belong to a company.</p>
        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Privat"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Privat"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Privé"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"it"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"nl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
            </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Privat"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Privé"</span><span class="p">,</span><span class="w">
@@ -741,6 +781,17 @@ Returns with an 401 if the user does not belong to a company.</p>
          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Führungskräfte"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Managers"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Managers / Responsables"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal directivo"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"it"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personale direttivo"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"nl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leidinggevenden"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menedżerowie"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"pt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gerentes"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Менеджеры"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
            </span><span class="nt">"de"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Führungskräfte"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Managers"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Managers / Responsables"</span><span class="p">,</span><span class="w">
@@ -799,6 +850,10 @@ Returns with an 401 if the user does not belong to a company.</p>
 <tr>
 <td>labels</td>
 <td>An object of translations of the custom tag name.</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>An object of translations of the custom tag description.</td>
 </tr>
 <tr>
 <td>de_translation</td>
@@ -1489,6 +1544,8 @@ about the just logged in user by sending a <code class="prettyprint">id_token</c
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT ID TOKEN HERE"</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">OR</span><span class="w">
+      </span><span class="s2">"access_token"</span><span class="err">:</span><span class="w"> </span><span class="s2">"INSERT ACCESS TOKEN HERE"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1527,6 +1584,9 @@ about the just logged in user by sending a <code class="prettyprint">id_token</c
 
 <h3 id="post-attributes">POST Attributes</h3>
 
+<p>We support those 2 token types for azure authentication via oauth2.
+Make sure to only send one of them rather than both in the same request.</p>
+
 <table><thead>
 <tr>
 <th>Paramteter</th>
@@ -1536,6 +1596,10 @@ about the just logged in user by sending a <code class="prettyprint">id_token</c
 <tr>
 <td>id_token</td>
 <td>Request this token from azure auth api (see <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token">https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token</a>)</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>Request this token from google auth api (see <a href="https://developers.google.com/identity/sign-in/web/sign-in">https://developers.google.com/identity/sign-in/web/sign-in</a>)</td>
 </tr>
 </tbody></table>
 
