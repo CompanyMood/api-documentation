@@ -83,3 +83,25 @@ mood_creation_reminder_push_notification_active     | Will the user receive push
 mood_review_snoozed_until                           | Returns a date time if the user snoozed the mood review form.
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
 current_tracking_time                               | The next tracking time when the user should be presented with the mood tracking form.
+
+## End session / logout
+
+```http
+DELETE /sessions HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+
+{ }
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{ }
+```
+
+This will logout the user and regenerates the users api_access_token.
+To retrieve the new api_access_token you need to create a new user session using the create endpoint above.
