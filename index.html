@@ -3787,7 +3787,7 @@ want to track a terminal mood. More under /moods</p>
 </tr>
 <tr>
 <td>role</td>
-<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
 </tr>
 <tr>
 <td>company_id</td>
@@ -4024,23 +4024,23 @@ need to use the users invite endpoint (see below)</p>
 </thead><tbody>
 <tr>
 <td>firstname</td>
-<td>Firstname of the sessions user</td>
+<td>Firstname of the user</td>
 </tr>
 <tr>
 <td>lastname</td>
-<td>Lastname of the sessions user</td>
+<td>Lastname of the user</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Email of the sessions user</td>
+<td>Email of the user</td>
 </tr>
 <tr>
 <td>locale</td>
-<td>Locale of the sessions user</td>
+<td>Locale of the user</td>
 </tr>
 <tr>
 <td>role</td>
-<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
 </tr>
 <tr>
 <td>department_id</td>
@@ -4086,23 +4086,23 @@ need to use the users invite endpoint (see below)</p>
 </thead><tbody>
 <tr>
 <td>firstname</td>
-<td>Firstname of the sessions user</td>
+<td>Firstname of the user</td>
 </tr>
 <tr>
 <td>lastname</td>
-<td>Lastname of the sessions user</td>
+<td>Lastname of the user</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Email of the sessions user</td>
+<td>Email of the user</td>
 </tr>
 <tr>
 <td>locale</td>
-<td>Locale of the sessions user</td>
+<td>Locale of the user</td>
 </tr>
 <tr>
 <td>role</td>
-<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
 </tr>
 <tr>
 <td>company_id</td>
@@ -4195,23 +4195,23 @@ The user will receive an email and can complete the registration with firstname,
 </thead><tbody>
 <tr>
 <td>firstname</td>
-<td>Firstname of the sessions user</td>
+<td>Firstname of the user</td>
 </tr>
 <tr>
 <td>lastname</td>
-<td>Lastname of the sessions user</td>
+<td>Lastname of the user</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Email of the sessions user</td>
+<td>Email of the user</td>
 </tr>
 <tr>
 <td>locale</td>
-<td>Locale of the sessions user</td>
+<td>Locale of the user</td>
 </tr>
 <tr>
 <td>role</td>
-<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
 </tr>
 <tr>
 <td>department_id</td>
@@ -4229,27 +4229,23 @@ The user will receive an email and can complete the registration with firstname,
 </thead><tbody>
 <tr>
 <td>firstname</td>
-<td>Firstname of the sessions user</td>
+<td>Firstname of the user</td>
 </tr>
 <tr>
 <td>lastname</td>
-<td>Lastname of the sessions user</td>
+<td>Lastname of the user</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Email of the sessions user</td>
+<td>Email of the user</td>
 </tr>
 <tr>
 <td>locale</td>
-<td>Locale of the sessions user</td>
+<td>Locale of the user</td>
 </tr>
 <tr>
 <td>role</td>
-<td>Role of the sessions user (<code class="prettyprint">admin</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
-</tr>
-<tr>
-<td>company_id</td>
-<td>ID of the company, the user belongs to. <code class="prettyprint">null</code> if the user does&rsquo;t belong to a company, yet.</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
 </tr>
 <tr>
 <td>department_id</td>
@@ -4274,6 +4270,115 @@ The user will receive an email and can complete the registration with firstname,
 <tr>
 <td>weekly_status_notification_active</td>
 <td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-user">Update a user</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="update-attributes">Update Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstname</td>
+<td>Firstname of the user</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Lastname of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email of the user</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>Locale of the user</td>
+</tr>
+<tr>
+<td>role</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstname</td>
+<td>Firstname of the user</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Lastname of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email of the user</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>Locale of the user</td>
+</tr>
+<tr>
+<td>role</td>
+<td>Role of the user (<code class="prettyprint">admin</code>, <code class="prettyprint">supervisor</code>, <code class="prettyprint">department_manager</code> or <code class="prettyprint">employee</code>)</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
 </tr>
 </tbody></table>
 
