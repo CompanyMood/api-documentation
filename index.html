@@ -1323,6 +1323,208 @@ admin of the company.</p>
 </tr>
 </tbody></table>
 
+<h2 id="create-a-new-department">Create a new department</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/departments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All managers"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desciption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All managers"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"breadcrumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="post-attributes">POST Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>required</td>
+<td>Name of the department</td>
+</tr>
+<tr>
+<td>description</td>
+<td>optional</td>
+<td>Description of the department</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>optional</td>
+<td>UUID of the parent department</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the department</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Description of the department</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>UUID of the parent department</td>
+</tr>
+<tr>
+<td>breadcrumb</td>
+<td>All names in path to the department incl. it&rsquo;s own</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-existing-department">Update an existing department</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/departments/{department_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All managers"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">CREATED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e96afc28-f27e-49b9-9f27-94dd3e2a296b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desciption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All managers"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"breadcrumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9767fd1-a187-40e2-954c-872cebff5e70"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="put-attributes">PUT Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>required</td>
+<td>Name of the department</td>
+</tr>
+<tr>
+<td>description</td>
+<td>optional</td>
+<td>Description of the department</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>optional</td>
+<td>UUID of the parent department</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-attributes">Response Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Paramteter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the department</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Description of the department</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>UUID of the parent department</td>
+</tr>
+<tr>
+<td>breadcrumb</td>
+<td>All names in path to the department incl. it&rsquo;s own</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-a-department">Delete a department</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/departments/{mood_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 795665b4-53da-468c-a0d7-ab2d82e58406</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+
+<p>Delete a specific department (by <code class="prettyprint">department_id</code> in the URI)</p>
+
+<h3 id="important">Important!</h3>
+
+<p>The subdepartment children get added to the parent of this deleted department.
+If the deleted department is root, then rootify the orphan subdepartments.</p>
+
           <h1 id="eventpins">EventPins</h1>
 
 <h2 id="retrieve-the-event_pins-of-the-users-company">Retrieve the event_pins of the users company</h2>
