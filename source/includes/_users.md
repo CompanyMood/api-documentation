@@ -127,3 +127,203 @@ invitations_amount    | Amount of the not accepted invitations
 terminal_users_amount | Amount of the terminal users (set in terminals)
 active_users_amount   | Amount of all participating users (employees + terminal)
 users_total_amount    | Amount of all users combined
+
+## Create a new user
+This will create a user in your company which is directly able to use oauth or use
+password reset to set a password.
+
+If you want to invite a user to your company with invitation email and
+invitation completion form (where the user set the password etc) you
+need to use the users invite endpoint (see below)
+
+```http
+POST /users HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+
+{
+  "data" : {
+    "type": "users",
+    "attributes": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "j.doe1@example.com",
+      "locale": "de",
+      "role": "admin",
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "mood_creation_notification_email_active": true,
+      "mood_creation_reminder_email_active": true,
+      "mood_creation_notification_push_notification_active": true,
+      "mood_creation_reminder_push_notification_active": true,
+      "weekly_status_notification_active": true,
+      "password": "kjnasdfkjnasdfkjnaaskjdfn",
+      "password_confirmation": "kjnasdfkjnasdfkjnaaskjdfn"
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
+    "type": "users",
+    "attributes": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "j.doe1@example.com",
+      "locale": "de",
+      "role": "admin",
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "mood_creation_notification_email_active": true,
+      "mood_creation_reminder_email_active": true,
+      "mood_creation_notification_push_notification_active": true,
+      "mood_creation_reminder_push_notification_active": true,
+      "weekly_status_notification_active": true
+    }
+  }
+}
+```
+### POST Attributes
+
+
+Parameter                                           | Description
+----------------------------------------------------|------------
+firstname                                           | Firstname of the sessions user
+lastname                                            | Lastname of the sessions user
+email                                               | Email of the sessions user
+locale                                              | Locale of the sessions user
+role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
+department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+password | Password for the user (the user can change it later)
+password_confirmation | Password confirmation
+
+
+### Response Attributes
+
+Parameter                                           | Description
+----------------------------------------------------|------------
+firstname                                           | Firstname of the sessions user
+lastname                                            | Lastname of the sessions user
+email                                               | Email of the sessions user
+locale                                              | Locale of the sessions user
+role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
+company_id                                          | ID of the company, the user belongs to. `null` if the user does't belong to a company, yet.
+department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+
+## Invite a user
+This will invite a user to your company account.
+The user will receive an email and can complete the registration with firstname, lastname and password setting there.
+
+If you want to create direct usable user accounts with fix passwords, name, email etc please use the users create endpoint (see above)
+
+```http
+POST /users/invitations HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+
+{
+  "data" : {
+    "type": "users",
+    "attributes": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "j.doe1@example.com",
+      "locale": "de",
+      "role": "admin",
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb"
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
+    "type": "users",
+    "attributes": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "j.doe1@example.com",
+      "locale": "de",
+      "role": "admin",
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "mood_creation_notification_email_active": true,
+      "mood_creation_reminder_email_active": true,
+      "mood_creation_notification_push_notification_active": true,
+      "mood_creation_reminder_push_notification_active": true,
+      "weekly_status_notification_active": true
+    }
+  }
+}
+```
+### POST Attributes
+
+
+Parameter                                           | Description
+----------------------------------------------------|------------
+firstname                                           | Firstname of the sessions user
+lastname                                            | Lastname of the sessions user
+email                                               | Email of the sessions user
+locale                                              | Locale of the sessions user
+role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
+department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+
+
+### Response Attributes
+
+Parameter                                           | Description
+----------------------------------------------------|------------
+firstname                                           | Firstname of the sessions user
+lastname                                            | Lastname of the sessions user
+email                                               | Email of the sessions user
+locale                                              | Locale of the sessions user
+role                                                | Role of the sessions user (`admin`, `department_manager` or `employee`)
+company_id                                          | ID of the company, the user belongs to. `null` if the user does't belong to a company, yet.
+department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+mood_creation_notification_email_active             | Will the user receive notifications for mood reviews per email?
+mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
+mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
+mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+
+## Delete a user
+
+```http
+DELETE /users/{user_id} HTTP/1.1
+Host: api.company-mood.com
+Content-Type: application/json
+Accept: application/vnd.company-mood-v2+json
+Authorization: Bearer 795665b4-53da-468c-a0d7-ab2d82e58406
+X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+Delete a specific user (by `user_id` in the URI)
