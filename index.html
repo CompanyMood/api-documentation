@@ -3745,7 +3745,9 @@ want to track a terminal mood. More under /moods</p>
       </span><span class="nt">"mood_review_snoozed_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-14T11:15:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"current_tracking_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-20T11:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3dad26-31a4-4f6d-a799-b3cd9053dc83"</span><span class="w">
+      </span><span class="nt">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3dad26-31a4-4f6d-a799-b3cd9053dc83"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3828,6 +3830,14 @@ want to track a terminal mood. More under /moods</p>
 <tr>
 <td>auth_token</td>
 <td>Auth token for users session, use this for further authorization on endpoints</td>
+</tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
 </tr>
 </tbody></table>
 
@@ -3985,7 +3995,9 @@ need to use the users invite endpoint (see below)</p>
       </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kjnasdfkjnasdfkjnaaskjdfn"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kjnasdfkjnasdfkjnaaskjdfn"</span><span class="w">
+      </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kjnasdfkjnasdfkjnaaskjdfn"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4008,7 +4020,9 @@ need to use the users invite endpoint (see below)</p>
       </span><span class="nt">"mood_creation_reminder_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"mood_creation_notification_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4064,15 +4078,19 @@ need to use the users invite endpoint (see below)</p>
 </tr>
 <tr>
 <td>weekly_status_notification_active</td>
-<td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Password for the user (the user can change it later)</td>
+<td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role) password</td>
 </tr>
 <tr>
 <td>password_confirmation</td>
 <td>Password confirmation</td>
+</tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
 </tr>
 </tbody></table>
 
@@ -4132,6 +4150,14 @@ need to use the users invite endpoint (see below)</p>
 <td>weekly_status_notification_active</td>
 <td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
 </tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
+</tr>
 </tbody></table>
 
 <h2 id="invite-a-user">Invite a user</h2>
@@ -4156,7 +4182,9 @@ The user will receive an email and can complete the registration with firstname,
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4179,7 +4207,9 @@ The user will receive an email and can complete the registration with firstname,
       </span><span class="nt">"mood_creation_reminder_email_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"mood_creation_notification_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"mood_creation_reminder_push_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"weekly_status_notification_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4216,6 +4246,14 @@ The user will receive an email and can complete the registration with firstname,
 <tr>
 <td>department_id</td>
 <td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
 </tr>
 </tbody></table>
 
@@ -4271,6 +4309,14 @@ The user will receive an email and can complete the registration with firstname,
 <td>weekly_status_notification_active</td>
 <td>Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)</td>
 </tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-a-user">Update a user</h2>
@@ -4290,7 +4336,9 @@ The user will receive an email and can complete the registration with firstname,
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4308,7 +4356,9 @@ The user will receive an email and can complete the registration with firstname,
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe1@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="w">
+      </span><span class="nt">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7559f2a-8f1c-461e-8a9b-7efea5564edb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AADOB-234113324-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personnel_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100236"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4346,6 +4396,14 @@ The user will receive an email and can complete the registration with firstname,
 <td>department_id</td>
 <td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
 </tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
+</tr>
 </tbody></table>
 
 <h3 id="response-attributes">Response Attributes</h3>
@@ -4379,6 +4437,14 @@ The user will receive an email and can complete the registration with firstname,
 <tr>
 <td>department_id</td>
 <td>ID of the department, the user belongs to. <code class="prettyprint">null</code> if the user doesn&rsquo;t belong to a department.</td>
+</tr>
+<tr>
+<td>external_uid</td>
+<td>External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id</td>
+</tr>
+<tr>
+<td>personnel_number</td>
+<td>The personnel number of the employee</td>
 </tr>
 </tbody></table>
 
