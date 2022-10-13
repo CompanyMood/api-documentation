@@ -35,7 +35,9 @@ Content-Type: application/json
       "mood_review_snoozed_until": "2019-06-14T11:15:00.000Z",
       "current_tracking_time": "2019-06-20T11:00:00.000Z",
       "weekly_status_notification_active": true,
-      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83"
+      "auth_token": "5c3dad26-31a4-4f6d-a799-b3cd9053dc83",
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -45,8 +47,8 @@ Returns the current user details.
 
 ### Response Attributes
 
-Parameter | Description
------------|------------
+Parameter                                           | Description
+----------------------------------------------------|------------
 firstname                                           | Firstname of the sessions user
 lastname                                            | Lastname of the sessions user
 gender                                              | The gender of the sessions user (`male`, `female`, `divers`)
@@ -64,6 +66,8 @@ mood_review_snoozed_until                           | Returns a date time if the
 current_tracking_time                               | The next tracking time when the user should be presented with the mood tracking form.
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
 auth_token                                          | Auth token for users session, use this for further authorization on endpoints
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 ## Get users statistics
 
@@ -160,7 +164,9 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "mood_creation_reminder_push_notification_active": true,
       "weekly_status_notification_active": true,
       "password": "kjnasdfkjnasdfkjnaaskjdfn",
-      "password_confirmation": "kjnasdfkjnasdfkjnaaskjdfn"
+      "password_confirmation": "kjnasdfkjnasdfkjnaaskjdfn",
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -185,7 +191,9 @@ Content-Type: application/json
       "mood_creation_reminder_email_active": true,
       "mood_creation_notification_push_notification_active": true,
       "mood_creation_reminder_push_notification_active": true,
-      "weekly_status_notification_active": true
+      "weekly_status_notification_active": true,
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -205,9 +213,10 @@ mood_creation_notification_email_active             | Will the user receive noti
 mood_creation_reminder_email_active                 | Will the user receive reminder for mood reviews per email if he didn't give an answer already?
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
-weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
-password | Password for the user (the user can change it later)
-password_confirmation | Password confirmation
+weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role) password | Password for the user (the user can change it later)
+password_confirmation                               | Password confirmation
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 
 ### Response Attributes
@@ -226,6 +235,8 @@ mood_creation_reminder_email_active                 | Will the user receive remi
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 ## Invite a user
 This will invite a user to your company account.
@@ -250,7 +261,9 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "email": "j.doe1@example.com",
       "locale": "de",
       "role": "admin",
-      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb"
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -275,7 +288,9 @@ Content-Type: application/json
       "mood_creation_reminder_email_active": true,
       "mood_creation_notification_push_notification_active": true,
       "mood_creation_reminder_push_notification_active": true,
-      "weekly_status_notification_active": true
+      "weekly_status_notification_active": true,
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -283,14 +298,16 @@ Content-Type: application/json
 ### POST Attributes
 
 
-Parameter                                           | Description
-----------------------------------------------------|------------
-firstname                                           | Firstname of the user
-lastname                                            | Lastname of the user
-email                                               | Email of the user
-locale                                              | Locale of the user
-role                                                | Role of the user (`admin`, `supervisor`, `department_manager` or `employee`)
-department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+Parameter        | Description
+-----------------|------------
+firstname        | Firstname of the user
+lastname         | Lastname of the user
+email            | Email of the user
+locale           | Locale of the user
+role             | Role of the user (`admin`, `supervisor`, `department_manager` or `employee`)
+department_id    | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+external_uid     | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number | The personnel number of the employee
 
 
 ### Response Attributes
@@ -308,6 +325,8 @@ mood_creation_reminder_email_active                 | Will the user receive remi
 mood_creation_notification_push_notification_active | Will the user receive push notifications for mood reviews on mobile phones?
 mood_creation_reminder_push_notification_active     | Will the user receive push notifications to remind him to answer the review question on mobile phone?
 weekly_status_notification_active                   | Will the user receive a weekly status report per mail? (Attribute is not present for users without a report role)
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 ## Update a user
 
@@ -328,7 +347,9 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
       "email": "j.doe1@example.com",
       "locale": "de",
       "role": "admin",
-      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb"
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -348,7 +369,9 @@ Content-Type: application/json
       "email": "j.doe1@example.com",
       "locale": "de",
       "role": "admin",
-      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb"
+      "department_id": "f7559f2a-8f1c-461e-8a9b-7efea5564edb",
+      "external_uid": "AADOB-234113324-21",
+      "personnel_number": "100236"
     }
   }
 }
@@ -364,6 +387,8 @@ email                                               | Email of the user
 locale                                              | Locale of the user
 role                                                | Role of the user (`admin`, `supervisor`, `department_manager` or `employee`)
 department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 
 ### Response Attributes
@@ -376,6 +401,8 @@ email                                               | Email of the user
 locale                                              | Locale of the user
 role                                                | Role of the user (`admin`, `supervisor`, `department_manager` or `employee`)
 department_id                                       | ID of the department, the user belongs to. `null` if the user doesn't belong to a department.
+external_uid                                        | External UID - After setting, it can also be used as ID in Post /users and PUT /users/:id
+personnel_number                                    | The personnel number of the employee
 
 ## Delete a user
 
