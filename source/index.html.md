@@ -22,6 +22,7 @@ includes:
   - passwords
   - public_announcements
   - reasonings
+  - reactions
   - settings
   - suggestions
   - tasks
