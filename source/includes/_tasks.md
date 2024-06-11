@@ -46,8 +46,8 @@ Content-Type: application/json
          "published": false,
          "created_at": "2018-03-15",
          "reaction_counts": {
-           "up": 1,
-           "down": 8
+           "up": 12,
+           "down": 4
          }
        }
      }
