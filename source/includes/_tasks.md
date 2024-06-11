@@ -28,7 +28,11 @@ Content-Type: application/json
          "percent": 100,
          "state": "implemented",
          "published": true,
-         "created_at": "2018-03-11"
+         "created_at": "2018-03-11",
+         "reaction_counts": {
+           "up": 5,
+           "down": 1
+         }
        }
      },
      {
@@ -40,7 +44,11 @@ Content-Type: application/json
          "percent": 10,
          "state": "idea",
          "published": false,
-         "created_at": "2018-03-15"
+         "created_at": "2018-03-15",
+         "reaction_counts": {
+           "up": 1,
+           "down": 8
+         }
        }
      }
   ]
