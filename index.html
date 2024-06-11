@@ -3161,6 +3161,52 @@ with a password reset link.</p>
 </tr>
 </tbody></table>
 
+          <h1 id="reactions">Reactions</h1>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/reactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.company-mood.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.company-mood-v2+json</span>
+<span class="na">X-App-Token</span><span class="p">:</span> <span class="s">27f50875-9a43-4d6c-a376-6968f09858db</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reactions"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reactionable_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4123-s23awq-124fe2-1123q-4fr21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reactionable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">202</span> <span class="ne">ACCEPTED</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+
+<p>Set a reaction for a resource (Task, Comment, Statement, EventPin)</p>
+
+<h2 id="post-attributes">POST attributes</h2>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reactionable_id</td>
+<td>ID/UUID of the resource to create the reaction for</td>
+</tr>
+<tr>
+<td>reactionable_type</td>
+<td>Type of the resource to create the reaction for (Comment, Task, Statement, EventPin)</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>The reactions rating to set (up / down)</td>
+</tr>
+</tbody></table>
+
           <h1 id="settings">Settings</h1>
 
 <h2 id="retrieve-the-current-user-settings">Retrieve the current user settings</h2>
