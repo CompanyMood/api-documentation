@@ -103,25 +103,33 @@ Content-Type: application/json
           "from": "2018-10-29",
           "to": "2018-11-04",
           "participation_ratio": 33,
-          "happiness_score": 20
+          "happiness_score": 20,
+          "participation_count": 1,
+          "average_users_amount": 3
         },
         {
           "from": "2018-11-05",
           "to": "2018-11-11",
           "participation_ratio": 36,
-          "happiness_score": 25
+          "happiness_score": 25,
+          "participation_count": 1,
+          "average_users_amount": 3
         },
         {
           "from": "2018-11-12",
           "to": "2018-11-18",
           "participation_ratio": null,
-          "happiness_score": null
+          "happiness_score": null,
+          "participation_count": null,
+          "average_users_amount": null
         },
         {
           "from": "2018-11-19",
           "to": "2018-11-25",
           "participation_ratio": 0,
-          "happiness_score": 35
+          "happiness_score": 35,
+          "participation_count": 0,
+          "average_users_amount": 2
         }
       ]
     }
@@ -166,25 +174,33 @@ Content-Type: application/json
           "from": "2018-10-29",
           "to": "2018-11-04",
           "participation_ratio": 33,
-          "happiness_score": 20
+          "happiness_score": 20,
+          "participation_count": 1,
+          "average_users_amount": 3
         },
         {
           "from": "2018-11-05",
           "to": "2018-11-11",
           "participation_ratio": 36,
-          "happiness_score": 25
+          "happiness_score": 25,
+          "participation_count": 1,
+          "average_users_amount": 3
         },
         {
           "from": "2018-11-12",
           "to": "2018-11-18",
           "participation_ratio": null,
-          "happiness_score": null
+          "happiness_score": null,
+          "participation_count": null,
+          "average_users_amount": null
         },
         {
           "from": "2018-11-19",
           "to": "2018-11-25",
-          "participation_ratio": 38,
-          "happiness_score": 35
+          "participation_ratio": 0,
+          "happiness_score": 35,
+          "participation_count": 0,
+          "average_users_amount": 2
         }
       ]
     }
