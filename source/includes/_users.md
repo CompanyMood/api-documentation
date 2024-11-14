@@ -435,7 +435,7 @@ location_name                                       | The users location
 ## Update a user
 
 ```http
-POST /users HTTP/1.1
+PUT /users/<user-uid> HTTP/1.1
 Host: api.company-mood.com
 Content-Type: application/json
 Accept: application/vnd.company-mood-v2+json
@@ -446,6 +446,7 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
   "data" : {
     "type": "users",
     "attributes": {
+      "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
       "firstname": "John",
       "lastname": "Doe",
       "email": "j.doe1@example.com",
