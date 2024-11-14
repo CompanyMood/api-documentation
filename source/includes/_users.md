@@ -444,9 +444,9 @@ X-App-Token: 27f50875-9a43-4d6c-a376-6968f09858db
 
 {
   "data" : {
+    "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
     "type": "users",
     "attributes": {
-      "id": "e96afc28-f27e-49b9-9f27-94dd3e2a296b",
       "firstname": "John",
       "lastname": "Doe",
       "email": "j.doe1@example.com",
